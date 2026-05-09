@@ -86,7 +86,12 @@
     }
     grid.innerHTML = photos.map(p => `
       <div class="galerie-card" onclick="openLightbox('${p.url}','${p.auteur}','${p.description}')">
-        <img src="${p.url}" alt="${p.description || p.auteur}" loading="lazy">
+        <img src="${p.url}" alt="${p.description || p.auteur}" loading="lazy"
+             onerror="this.onerror=null;this.src='';this.closest('.galerie-card').querySelector('.galerie-img-placeholder').style.display='flex';this.style.display='none';">
+        <div class="galerie-img-placeholder" style="display:none;height:200px;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:rgba(201,168,76,.04);border-bottom:1px solid rgba(201,168,76,.1);">
+          <span style="font-size:32px;opacity:.4;">🏹</span>
+          <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:#8A7F65;text-transform:uppercase;">Image expirée</span>
+        </div>
         <div class="galerie-info">
           <div class="galerie-auteur">${p.auteur}</div>
           ${p.description ? `<div class="galerie-desc">${p.description}</div>` : ''}
@@ -112,7 +117,7 @@
   /* ── Fetch Discord members + maps + galerie ─────── */
   async function fetchDiscordStats() {
     try {
-      const res = await fetch('https://discord-members.desmetcyrille9.workers.dev/');
+      const res = await fetch('https://discord-members.desmetcyrille9.workers.dev/?t=' + Date.now());
       const data = await res.json();
 
       // Membres
