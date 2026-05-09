@@ -37,7 +37,7 @@
     .rates-title { font-family:'Cinzel',serif; font-size:26px; letter-spacing:1.5px; color:var(--gold); margin-bottom:16px; font-weight:700; }
     .rate-row { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06); }
     .rate-row:last-of-type { border-bottom:none; }
-    .rate-label { font-size:24px; color:var(--muted); font-weight:700; }
+    .rate-label { font-size:24px; color:var(--text); font-weight:700; }
     .rate-val { font-family:'Cinzel',serif; font-size:26px; font-weight:700; color:var(--gold2); }
     .rate-row.highlight .rate-val { color:#57F287; font-size:26px; font-weight:700; }
     .rates-note { margin-top:16px; font-size:22px; color:var(--gold3); font-style:italic; text-align:center; line-height:1.6; font-weight:700; }
