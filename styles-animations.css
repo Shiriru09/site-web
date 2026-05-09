@@ -1,0 +1,73 @@
+
+
+/* ─── Mascotte ──────────────────────────────────────── */
+    .mascot {
+      position: fixed;
+      top: 110px;
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      z-index: 50;
+      filter: drop-shadow(0 0 18px rgba(88,130,242,0.45));
+      pointer-events: none;
+      border-radius: 50%;
+    }
+    .mascot-left  { left: 0px; animation: mascot-float 4s ease-in-out infinite; }
+    .mascot-right { right: 0px; animation: mascot-float-r 4s ease-in-out infinite; animation-delay: -2s; }
+    @keyframes mascot-float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    @keyframes mascot-float-r {
+      0%,100% { transform: scaleX(-1) translateY(0); }
+      50%      { transform: scaleX(-1) translateY(-8px); }
+    }
+    @media(max-width:1100px){ .mascot { width:75px; height:75px; top:95px; } }
+    @media(max-width:700px) { .mascot { display:none; } }
+
+/* ─── Ambiance : braises & lueurs ──────────────────── */
+    #embers { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .ember {
+      position: absolute;
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: rise var(--d, 7s) ease-in infinite var(--delay, 0s);
+      opacity: 0;
+    }
+    @keyframes rise {
+      0%   { transform: translate(0,0) scale(1);   opacity: .8; }
+      60%  { opacity: .4; }
+      100% { transform: translate(var(--dx,20px), -90vh) scale(.2); opacity: 0; }
+    }
+    .glow-bg {
+      position: fixed; pointer-events: none; z-index: 0;
+      border-radius: 50%; filter: blur(130px);
+    }
+    .g1 { width:700px; height:450px; background:rgba(139,26,26,.14); top:-60px; left:50%; transform:translateX(-50%); }
+    .g2 { width:450px; height:350px; background:rgba(201,168,76,.07); bottom:5%; right:-80px; }
+    .bg-texture {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: rgba(3,4,10,0.35);
+    }
+    .bg-texture2 {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.015) 2px,rgba(0,0,0,.015) 4px);
+    }
+
+/* ─── Bouton Discord flottant ────────────────────────── */
+    .discord-fab {
+      position: fixed; bottom: 28px; right: 28px; z-index: 200;
+      display: flex; align-items: center; gap: 10px;
+      background: #5865F2; color: #fff;
+      padding: 13px 22px; border-radius: 50px;
+      font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 1.5px;
+      text-decoration: none; box-shadow: 0 6px 25px rgba(88,101,242,.5);
+      transition: all .25s; animation: fab-pulse 3s ease-in-out infinite;
+    }
+    .discord-fab:hover { background: #4752C4; transform: translateY(-3px); box-shadow: 0 10px 35px rgba(88,101,242,.7); }
+    @keyframes fab-pulse {
+      0%,100% { box-shadow: 0 6px 25px rgba(88,101,242,.5); }
+      50%      { box-shadow: 0 6px 35px rgba(88,101,242,.8); }
+    }
+    @media(max-width:500px){ .discord-fab span.fab-label { display:none; } }

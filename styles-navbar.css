@@ -1,0 +1,10 @@
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: #080A0F url("./bg.jpg") center 20% / 130% auto fixed no-repeat;
+      color: var(--text);
+      font-family: 'Crimson Pro', serif;
+      font-size: 18px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }

@@ -1,0 +1,15 @@
+@import url('./styles-reset.css');
+@import url('./styles-variables.css');
+@import url('./styles-layout.css');
+@import url('./styles-navbar.css');
+@import url('./styles-buttons.css');
+@import url('./styles-hero.css');
+@import url('./styles-cards.css');
+@import url('./styles-stats.css');
+@import url('./styles-rules.css');
+@import url('./styles-gallery.css');
+@import url('./styles-maps.css');
+@import url('./styles-animations.css');
+@import url('./styles-effects.css');
+@import url('./styles-responsive.css');
+@import url('./styles-footer.css');
