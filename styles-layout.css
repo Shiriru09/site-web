@@ -34,18 +34,18 @@
     .rates-card, .features-card {
       background:rgba(10,12,20,0.88); border:1px solid rgba(201,168,76,.15); border-radius:8px; padding:30px;
     }
-    .rates-title { font-family:'Cinzel',serif; font-size:22px; letter-spacing:1.5px; color:var(--gold); margin-bottom:16px; font-weight:700; }
+    .rates-title { font-family:'Cinzel',serif; font-size:26px; letter-spacing:1.5px; color:var(--gold); margin-bottom:16px; font-weight:700; }
     .rate-row { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06); }
     .rate-row:last-of-type { border-bottom:none; }
-    .rate-label { font-size:20px; color:#c8bfa8; color:var(--muted); font-weight:700; }
-    .rate-val { font-family:'Cinzel',serif; font-size:22px; font-weight:700; color:var(--gold2); }
-    .rate-row.highlight .rate-val { color:#57F287; font-size:22px; font-weight:700; }
-    .rates-note { margin-top:16px; font-size:18px; color:var(--gold3); font-style:italic; text-align:center; line-height:1.6; font-weight:700; }
+    .rate-label { font-size:24px; color:var(--muted); font-weight:700; }
+    .rate-val { font-family:'Cinzel',serif; font-size:26px; font-weight:700; color:var(--gold2); }
+    .rate-row.highlight .rate-val { color:#57F287; font-size:26px; font-weight:700; }
+    .rates-note { margin-top:16px; font-size:22px; color:var(--gold3); font-style:italic; text-align:center; line-height:1.6; font-weight:700; }
     .feature-item { display:flex; align-items:flex-start; gap:14px; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.06); }
     .feature-item:last-child { border-bottom:none; }
-    .feat-icon { font-size:24px; flex-shrink:0; margin-top:1px; }
-    .feature-item strong { font-family:'Cinzel',serif; font-size:22px; letter-spacing:.5px; color:#fff; display:block; margin-bottom:2px; font-weight:700; }
-    .feature-item span { font-size:18px; color:#a09880; font-weight:700; }
+    .feat-icon { font-size:28px; flex-shrink:0; margin-top:1px; }
+    .feature-item strong { font-family:'Cinzel',serif; font-size:26px; letter-spacing:.5px; color:#fff; display:block; margin-bottom:2px; font-weight:700; }
+    .feature-item span { font-size:22px; color:#a09880; font-weight:700; }
 
 /* Lightbox */
     .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:500; align-items:center; justify-content:center; }
