@@ -112,6 +112,14 @@
     document.getElementById('lightbox-img').src = '';
   }
 
+  /* Fermeture sur clic du fond sombre ou de l'image */
+  (function() {
+    const lb  = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    lb.addEventListener('click',  e => { if (e.target === lb || e.target === img) closeLightbox(); });
+    img.addEventListener('click', () => closeLightbox());
+  })();
+
   document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
 
   /* ── Fetch Discord members + maps + galerie ─────── */
