@@ -2,9 +2,10 @@
 
 
 
-/* ── Discord OAuth2 – remplissez ces deux valeurs ── */
-      --discord-client-id: YOUR_CLIENT_ID;
-      --discord-redirect:  http://localhost/callback;
+/* ─── Conteneur principal ───────────────────────────── */
+    .wrap { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 0 140px; }
+    @media(max-width:1100px){ .wrap { padding: 0 100px; } }
+    @media(max-width:700px) { .wrap { padding: 0 24px; } }
 
 /* ─── Sections ──────────────────────────────────────── */
     .section { margin:0 0 64px; }

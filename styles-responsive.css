@@ -1,0 +1,7 @@
+    @media(max-width:640px) {
+      h1 { letter-spacing:2px; }
+      .stats-grid { grid-template-columns:1fr; }
+      .stat-box { padding:22px; }
+      nav { flex-wrap:wrap; gap:12px; }
+      .join-block { padding:36px 20px; }
+    }

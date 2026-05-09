@@ -1,0 +1,17 @@
+    .maps-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; }
+    .map-card {
+      background:rgba(10,12,20,0.85); border:1px solid rgba(201,168,76,.1); border-radius:8px;
+      padding:26px 28px; transition:all .2s;
+    }
+    .map-card:hover { border-color:rgba(201,168,76,.3); background:var(--bg3); transform:translateY(-2px); }
+    .map-card[data-status="offline"] { opacity:.65; }
+    .map-header { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+    .map-dot { width:13px; height:13px; border-radius:50%; flex-shrink:0; }
+    .map-name { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:#fff; flex:1; letter-spacing:.5px; }
+    .map-badge {
+      font-size:13px; letter-spacing:1.5px; font-family:'Cinzel',serif;
+      padding:3px 10px; border-radius:3px;
+    }
+    .map-badge.online  { background:rgba(87,242,135,.1); color:rgba(87,242,135,.85); border:1px solid rgba(87,242,135,.2); }
+    .map-badge.offline { background:rgba(239,68,68,.1);  color:rgba(239,68,68,.75);  border:1px solid rgba(239,68,68,.2); }
+    .map-desc { font-size:18px; color:#b0a88a; line-height:1.75; font-weight:400; }

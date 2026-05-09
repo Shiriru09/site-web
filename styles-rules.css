@@ -1,0 +1,41 @@
+    .pve-banner {
+      background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.4);
+      border-left:4px solid #ef4444; border-radius:4px;
+      padding:18px 24px; font-size:18px; font-weight:700; color:rgba(255,120,120,.95);
+      margin-bottom:20px; font-family:'Cinzel',serif; letter-spacing:.5px;
+    }
+    .accord-list { display:grid; gap:8px; }
+    .accord-item { background:var(--bg2); border:1px solid rgba(201,168,76,.1); border-radius:6px; overflow:hidden; }
+    .accord-head {
+      width:100%; display:flex; align-items:center; gap:12px;
+      background:transparent; border:none; padding:16px 20px;
+      cursor:pointer; text-align:left; transition:background .2s;
+    }
+    .accord-head:hover { background:rgba(201,168,76,.06); }
+    .accord-icon { font-size:18px; flex-shrink:0; }
+    .accord-title { font-family:'Cinzel',serif; font-size:16px; font-weight:700; color:#fff; flex:1; letter-spacing:.8px; }
+    .accord-arrow { font-size:11px; color:var(--gold3); transition:transform .25s; }
+    .accord-head.active .accord-arrow { transform:rotate(180deg); }
+    .accord-body {
+      max-height:0; overflow:hidden; transition:max-height .35s ease;
+      border-top:0 solid rgba(201,168,76,.1);
+    }
+    .accord-body.open { max-height:600px; border-top-width:1px; }
+    .rule-ul { list-style:none; padding:18px 24px 20px 24px; display:grid; gap:12px; }
+    .rule-ul li { font-size:17px; color:#c8bfa8; line-height:1.75; padding-left:20px; position:relative; font-weight:400; }
+    .rule-ul li::before { content:'›'; position:absolute; left:0; color:var(--gold3); font-size:20px; line-height:1.4; }
+    .rule-ul li.rule-warn { color:rgba(239,68,68,.9); }
+    .rule-ul li.rule-warn::before { color:rgba(239,68,68,.7); }
+    .rule-example { font-size:15px; color:var(--gold3); font-style:italic; }
+    .sanction-scale { display:grid; gap:8px; padding:0 20px 18px; }
+    .sanction { padding:10px 16px; border-radius:4px; font-family:'Cinzel',serif; font-size:15px; letter-spacing:.5px; display:flex; justify-content:space-between; align-items:center; }
+    .sanction span { font-size:11px; opacity:.7; font-family:'Crimson Pro',serif; font-style:italic; }
+    .sanction.warn { background:rgba(234,179,8,.08); border:1px solid rgba(234,179,8,.25); color:rgba(234,179,8,.85); }
+    .sanction.temp { background:rgba(249,115,22,.08); border:1px solid rgba(249,115,22,.25); color:rgba(249,115,22,.85); }
+    .sanction.ban  { background:rgba(239,68,68,.08);  border:1px solid rgba(239,68,68,.25);  color:rgba(239,68,68,.85); }
+    .accept-banner {
+      margin-top:20px; background:rgba(201,168,76,.08); border:1px solid rgba(201,168,76,.3);
+      border-radius:6px; padding:26px 30px; text-align:center;
+      font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:#e8dfc0; letter-spacing:.5px; line-height:2;
+    }
+    .accept-banner span { font-size:17px; font-weight:500; color:#c8bfa8; font-family:'Crimson Pro',serif; font-style:italic; }
