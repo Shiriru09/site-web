@@ -1,7 +1,7 @@
 
     html { scroll-behavior: smooth; }
     body {
-      background: #080A0F url("./bg.jpg") center center / cover no-repeat fixed;
+      background: #080A0F url("./bg.jpg") center center / contain no-repeat fixed;
       color: var(--text);
       font-family: 'Crimson Pro', serif;
       font-size: 18px;
