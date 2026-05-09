@@ -34,7 +34,7 @@
     .plugin-name { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:#fff; letter-spacing:.5px; line-height:1.2; }
     .plugin-sub  { font-size:16px; color:var(--muted); margin-top:4px; font-style:italic; }
     .plugin-badge {
-      flex-shrink:0; align-self:flex-start; white-space:nowrap;
+      display:inline-block; margin-top:8px;
       font-family:'Cinzel',serif; font-size:11px; letter-spacing:1.5px;
       padding:3px 10px; border-radius:3px;
       background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.3); color:var(--gold);
