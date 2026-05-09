@@ -1,11 +1,16 @@
 
   /* ── Tabs mods ─────────────────────────────────── */
   function switchTab(btn, tabId) {
+    const isActive = btn.classList.contains('active');
     document.querySelectorAll('.mods-tab').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.mods-tab-content').forEach(t => t.classList.add('hidden'));
+    const placeholder = document.getElementById('mods-placeholder');
+    if (isActive) {
+      if (placeholder) placeholder.style.display = '';
+      return;
+    }
     btn.classList.add('active');
     document.getElementById(tabId).classList.remove('hidden');
-    const placeholder = document.getElementById('mods-placeholder');
     if (placeholder) placeholder.style.display = 'none';
   }
 
@@ -71,8 +76,10 @@
 
   /* ── Galerie ────────────────────────────────────── */
   function switchGalerie(btn, tabId) {
+    const isActive = btn.classList.contains('active');
     document.querySelectorAll('.galerie-tab').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.galerie-content').forEach(t => t.classList.add('hidden'));
+    if (isActive) return;
     btn.classList.add('active');
     document.getElementById(tabId).classList.remove('hidden');
   }
