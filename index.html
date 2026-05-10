@@ -204,7 +204,7 @@
     }
     .stat-box { background:var(--bg2); padding:30px; text-align:center; }
     .stat-num { font-family:'Cinzel',serif; font-size:48px; font-weight:700; color:var(--gold); line-height:1; }
-    .stat-lbl { font-size:15px; color:var(--muted); letter-spacing:2.5px; text-transform:uppercase; margin-top:7px; font-family:'Cinzel',serif; font-weight:700; }
+    .stat-lbl { font-size:15px; color:var(--muted); letter-spacing:2.5px; text-transform:uppercase; margin-top:7px; font-family:'Cinzel',serif; font-weight:700 !important; }
 
     /* ─── Sections ──────────────────────────────────────── */
     .section { margin:0 0 64px; }
@@ -312,7 +312,7 @@
     .rates-title { font-family:'Cinzel',serif; font-size:16px; letter-spacing:1.5px; color:var(--gold); margin-bottom:16px; font-weight:700; }
     .rate-row { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06); }
     .rate-row:last-of-type { border-bottom:none; }
-    .rate-label { font-size:20px; color:#c8bfa8; color:var(--muted); font-weight:700; }
+    .rate-label { font-size:20px; color:#c8bfa8; color:var(--muted); font-weight:700 !important; }
     .rate-val { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:var(--gold2); }
     .rate-row.highlight .rate-val { color:#57F287; }
     .rates-note { margin-top:16px; font-size:17px; color:var(--gold3); font-style:italic; text-align:center; line-height:1.6; }
@@ -380,7 +380,7 @@
     .plugin-name { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:#fff; letter-spacing:.5px; line-height:1.2; }
     .plugin-sub  { font-size:16px; color:var(--muted); margin-top:4px; font-style:italic; }
     .plugin-badge {
-      margin-left:auto; flex-shrink:0;
+      flex-shrink:0; align-self:flex-start; margin-top:0;
       font-family:'Cinzel',serif; font-size:11px; letter-spacing:1.5px;
       padding:3px 10px; border-radius:3px;
       background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.3); color:var(--gold);
