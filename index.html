@@ -119,6 +119,14 @@
     .logo-text  { font-family:'Cinzel',serif; font-weight:900; font-size:24px; color:var(--gold2); letter-spacing:2px; line-height:1.1; }
     .logo-sub   { font-size:13px; color:#a09880; letter-spacing:3px; text-transform:uppercase; }
     .nav-links  { display:flex; gap:8px; align-items:center; }
+    .nav-toggle { display:none; background:none; border:1px solid rgba(201,168,76,.4); border-radius:4px; padding:8px 12px; cursor:pointer; color:var(--gold); font-size:20px; line-height:1; }
+    @media(max-width:900px){
+      nav { padding:14px 16px; }
+      .nav-toggle { display:flex !important; }
+      .nav-links { display:none !important; position:absolute; top:100%; left:0; right:0; background:rgba(8,10,15,0.97); border-bottom:1px solid rgba(201,168,76,.2); padding:16px; flex-direction:column; gap:8px; z-index:200; }
+      .nav-links.open { display:flex !important; }
+      .nav-join { text-align:center; }
+    }
     .nav-link {
       font-family:'Cinzel',serif; font-size:17px; font-weight:600; color:#c8bfa8;
       letter-spacing:1.5px; padding:10px 20px;
@@ -240,6 +248,29 @@
       cursor:pointer; transition:all .25s; text-decoration:none;
     }
     .btn-discord:hover { background:#4752C4; transform:translateY(-2px); box-shadow:0 10px 35px rgba(88,101,242,.4); }
+
+    .join-actions { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; align-items:center; }
+    .btn-vote {
+      display:inline-flex; align-items:center; gap:10px;
+      background:linear-gradient(135deg,#7a5c10,#b8912e);
+      color:#fff; padding:15px 32px;
+      border:1px solid rgba(201,168,76,.55); border-radius:5px;
+      font-family:'Cinzel',serif; font-size:13px; letter-spacing:2px; font-weight:700;
+      cursor:pointer; transition:all .25s; text-decoration:none;
+      box-shadow:0 0 0 1px rgba(201,168,76,.1) inset;
+    }
+    .btn-vote:hover {
+      background:linear-gradient(135deg,#9a7418,#d4a83a);
+      transform:translateY(-3px);
+      box-shadow:0 12px 40px rgba(201,168,76,.35), 0 0 20px rgba(201,168,76,.15);
+      border-color:rgba(201,168,76,.8);
+    }
+    .vote-note {
+      margin-top:22px !important; margin-bottom:0 !important;
+      font-size:14px !important; letter-spacing:.5px; color:rgba(201,168,76,.6) !important;
+      font-style:normal !important; font-family:'Cinzel',serif;
+    }
+
     .config-note {
       background:rgba(201,168,76,.06); border:1px solid rgba(201,168,76,.2); border-radius:4px;
       padding:14px 20px; font-size:14px; color:rgba(201,168,76,.7);
@@ -515,7 +546,8 @@
         <div class="logo-sub">ARK Survival Ascended</div>
       </div>
     </a>
-    <div class="nav-links">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">&#9776;</button>
+    <div class="nav-links" id="nav-links">
       <a href="#serveur"  class="nav-link">Maps</a>
       <a href="#stats-section" class="nav-link">Stats</a>
       <a href="#mods-section" class="nav-link">Mods</a>
@@ -541,9 +573,9 @@
     </div>
 
     <h1>VALHALL<span>'ARK</span></h1>
-    <p class="tagline">
+    <p class="tagline" style="color:#ffffff !important; font-weight:700 !important;">
       PVE Vanilla Amélioré · +18 ans<br>
-      <em>Meurs en survivant, renais au Valhalla.</em>
+      <em style="font-style:normal; color:#ffffff;">Meurs en survivant, renais au Valhalla.</em>
     </p>
 
     <div class="cta-row">
@@ -1067,16 +1099,16 @@
       <h2>Entrez au Valhalla</h2>
       <p>Connectez-vous avec Discord pour accéder à votre profil et aux fonctionnalités membres.</p>
 
+      <div class="join-actions">
       <a href="https://discord.gg/kvtsdTh4Jb" target="_blank" class="btn-discord">
         <svg width="22" height="17" viewBox="0 0 22 16" fill="none">
           <path d="M18.6 1.3A17.8 17.8 0 0 0 14.2 0c-.2.3-.4.8-.6 1.1a16.5 16.5 0 0 0-5.2 0C8.2.8 8 .3 7.8 0 6.3.3 4.9.8 3.4 1.3A18.8 18.8 0 0 0 .1 13.5a17.9 17.9 0 0 0 5.5 2.8c.4-.6.8-1.2 1.1-1.9a11.6 11.6 0 0 1-1.8-.9l.4-.3a12.7 12.7 0 0 0 10.9 0l.5.3c-.6.3-1.2.7-1.9.9.3.7.7 1.3 1.1 1.9a17.8 17.8 0 0 0 5.5-2.8C21.9 9 20.8 4.9 18.6 1.3ZM7.4 11c-1.1 0-2-1-2-2.3S6.3 6.4 7.4 6.4s2 1 2 2.3S8.5 11 7.4 11Zm7.2 0c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3Z" fill="white"/>
         </svg>
         Rejoindre le Discord
       </a>
-
-    
-
-    
+      <a href="https://top-serveurs.net/arksa/valhallark" target="_blank" class="btn-vote">&#127942; Voter pour le serveur</a>
+      </div>
+      <p class="vote-note">&#10022; Chaque vote aide le serveur &#10022;</p>
     </div>
   </div>
 
@@ -1096,7 +1128,7 @@
   <!-- ── Lightbox ───────────────────────────────── -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">✕</span>
-    <img id="lightbox-img" src="" alt="">
+    <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
     <div class="lightbox-info" id="lightbox-info"></div>
   </div>
 
@@ -1105,11 +1137,13 @@
 <script>
   /* ── Tabs mods ─────────────────────────────────── */
   function switchTab(btn, tabId) {
+    const isActive = btn.classList.contains('active');
     document.querySelectorAll('.mods-tab').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.mods-tab-content').forEach(t => t.classList.add('hidden'));
+    const placeholder = document.getElementById('mods-placeholder');
+    if (isActive) { if (placeholder) placeholder.style.display = ''; return; }
     btn.classList.add('active');
     document.getElementById(tabId).classList.remove('hidden');
-    const placeholder = document.getElementById('mods-placeholder');
     if (placeholder) placeholder.style.display = 'none';
   }
 
@@ -1213,6 +1247,21 @@
 
   document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
 
+  /* ── Hamburger ─────────────────────────────────── */
+  (function(){
+    const toggle = document.getElementById('nav-toggle');
+    const links  = document.getElementById('nav-links');
+    if (!toggle || !links) return;
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+    }));
+  })();
+
   /* ── Fetch Discord members + maps + galerie ─────── */
   async function fetchDiscordStats() {
     try {
@@ -1257,7 +1306,7 @@
     }
   }
   fetchDiscordStats();
-  setInterval(fetchDiscordStats, 2 * 60 * 1000);
+  setInterval(fetchDiscordStats, 24 * 60 * 60 * 1000);
 </script>
 </body>
 </html>
