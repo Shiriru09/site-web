@@ -1,10 +1,25 @@
 ﻿  /* ── Plugin accordion ──────────────────────────── */
   function togglePlugin(btn) {
-    const body = btn.nextElementSibling;
+    const card = btn.closest('.plugin-card');
+    const body = card.querySelector('.plugin-acc-body');
     const isOpen = body.classList.contains('open');
-    body.classList.toggle('open', !isOpen);
-    btn.classList.toggle('open', !isOpen);
-    btn.textContent = isOpen ? 'En savoir plus ▼' : 'Réduire ▲';
+
+    // Ferme tous les autres accordéons ouverts
+    document.querySelectorAll('.plugin-acc-body.open').forEach(function(b) {
+      b.classList.remove('open');
+      var sibBtn = b.previousElementSibling;
+      if (sibBtn && sibBtn.classList.contains('plugin-acc-btn')) {
+        sibBtn.classList.remove('open');
+        sibBtn.textContent = 'En savoir plus ▼';
+      }
+    });
+
+    // Ouvre ou referme la carte cliquée
+    if (!isOpen) {
+      body.classList.add('open');
+      btn.classList.add('open');
+      btn.textContent = 'Réduire ▲';
+    }
   }
 
   /* ── Tabs mods ─────────────────────────────────── */
