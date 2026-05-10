@@ -19,7 +19,7 @@
       -webkit-backdrop-filter: blur(12px);
     }
     @media(max-width:1100px){ nav { padding: 14px 90px; } }
-    @media(max-width:700px)  { nav { padding: 14px 16px; } }
+    @media(max-width:900px)  { nav { padding: 14px 16px; } }
     .logo { display: flex; align-items: center; gap: 13px; text-decoration: none; }
     .logo-icon {
       width: 46px; height: 46px;
@@ -65,7 +65,7 @@
     .nav-toggle.open span:nth-child(2) { opacity: 0; }
     .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    @media(max-width:700px) {
+    @media(max-width:900px) {
       /* Affiche le bouton hamburger, cache les liens par défaut */
       .nav-toggle { display: flex !important; }
       .nav-links {
