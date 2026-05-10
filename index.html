@@ -551,19 +551,6 @@
     .faq-a.open { max-height:400px; }
     .faq-a p { padding:4px 24px 20px; font-size:16px; color:var(--muted); line-height:1.75; }
     .faq-a strong { color:#e8dfc0; }
-
-    /* ─── Nav server status ──────────────────────────────────── */
-    .nav-status {
-      display:flex; align-items:center; gap:6px;
-      font-family:'Cinzel',serif; font-size:11px; letter-spacing:1px;
-      padding:6px 14px; border-radius:3px;
-      border:1px solid rgba(87,242,135,.25); background:rgba(87,242,135,.06);
-      color:rgba(87,242,135,.85); white-space:nowrap;
-    }
-    .nav-status.offline { border-color:rgba(239,68,68,.3); background:rgba(239,68,68,.06); color:rgba(239,68,68,.8); }
-    .nav-dot { width:7px; height:7px; border-radius:50%; background:#57F287; flex-shrink:0; }
-    .nav-dot.offline { background:#ef4444; }
-    @media(max-width:900px){ .nav-status { display:none; } }
   
     /* ─── Loading screen ────────────────────────────────────── */
     #loader {
@@ -639,10 +626,6 @@
         <div class="logo-sub">ARK Survival Ascended</div>
       </div>
     </a>
-    <div class="nav-status" id="nav-status">
-      <div class="nav-dot" id="nav-server-dot"></div>
-      <span id="nav-server-text">Connexion...</span>
-    </div>
     <button class="nav-toggle" id="nav-toggle" aria-label="Menu">&#9776;</button>
     <div class="nav-links" id="nav-links">
       <a href="#serveur"  class="nav-link">Maps</a>
@@ -1475,32 +1458,6 @@
     targets.forEach(el => obs.observe(el));
   })();
 
-  /* ── Statut serveur BattleMetrics ───────────────────── */
-  async function fetchServerStatus() {
-    try {
-      const res = await fetch('https://api.battlemetrics.com/servers?filter[search]=valhallark&page[size]=5');
-      const data = await res.json();
-      const server = data.data?.[0];
-      if (!server) return;
-      const online  = server.attributes.status === 'online';
-      const players = server.attributes.players ?? 0;
-      const maxP    = server.attributes.maxPlayers ?? 0;
-      const dot = document.getElementById('server-dot');
-      const txt = document.getElementById('server-status-text');
-      const pEl = document.getElementById('server-players');
-      if (dot) { dot.style.background = online ? '#57F287' : '#ef4444'; dot.style.boxShadow = online ? '0 0 8px #57F287' : '0 0 8px #ef4444'; }
-      if (txt) txt.textContent = online ? 'SERVEUR EN LIGNE' : 'HORS LIGNE';
-      if (pEl) pEl.textContent = online ? players + '/' + maxP + ' joueurs' : '';
-      const navEl  = document.getElementById('nav-status');
-      const navDot = document.getElementById('nav-server-dot');
-      const navTxt = document.getElementById('nav-server-text');
-      if (navEl)  navEl.className  = 'nav-status' + (online ? '' : ' offline');
-      if (navDot) navDot.className = 'nav-dot'    + (online ? '' : ' offline');
-      if (navTxt) navTxt.textContent = online ? players + ' joueurs' : 'Hors ligne';
-    } catch(e) { console.warn('BattleMetrics:', e); }
-  }
-  fetchServerStatus();
-  setInterval(fetchServerStatus, 5 * 60 * 1000);
 
   /* ── Loading screen ────────────────────────────────────── */
   window.addEventListener('load', () => {
