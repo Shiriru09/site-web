@@ -1495,7 +1495,7 @@
   window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     if (!loader) return;
-    setTimeout(() => loader.classList.add('hidden'), 800);
+    setTimeout(() => loader.classList.add('hidden'), 1300);
     loader.addEventListener('transitionend', () => loader.remove(), { once: true });
   });
 
@@ -1513,7 +1513,7 @@
     const btn   = document.getElementById('sound-btn');
     const audio = document.getElementById('ambient-audio');
     if (!btn || !audio) return;
-    audio.volume = 0.06;
+    audio.volume = 0.03;
     let started = false;
 
     function onPlaying() {
