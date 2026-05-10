@@ -2,20 +2,27 @@
     .two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
     @media(max-width:680px){ .two-col { grid-template-columns:1fr; } }
     .rates-card, .features-card {
-      background:rgba(10,12,20,0.88); border:1px solid rgba(201,168,76,.15); border-radius:8px; padding:30px;
+      background:#0d1117; border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:28px 30px;
     }
-    .rates-title { font-family:'Cinzel',serif; font-size:16px; letter-spacing:1.5px; color:var(--gold); margin-bottom:16px; font-weight:700; }
-    .rate-row { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+    .rates-card { border-top:2px solid #2ea043; }
+    .features-card { border-top:2px solid #388bfd; }
+    .rates-title {
+      font-family:'Cinzel',serif; font-size:15px; letter-spacing:1.5px; font-weight:700;
+      margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .rates-card .rates-title  { color:#2ea043; }
+    .features-card .rates-title { color:#388bfd; }
+    .rate-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.05); gap:12px; }
     .rate-row:last-of-type { border-bottom:none; }
-    .rate-label { font-size:20px; color:#e8d5a3; font-weight:900 !important; }
-    .rate-val { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:var(--gold2); }
-    .rate-row.highlight .rate-val { color:#57F287; }
-    .rates-note { margin-top:16px; font-size:17px; color:var(--gold3); font-style:italic; text-align:center; line-height:1.6; }
-    .feature-item { display:flex; align-items:flex-start; gap:14px; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+    .rate-label { font-size:15px; color:#c9d1d9; font-weight:500 !important; }
+    .rate-val { font-family:'Cinzel',serif; font-size:15px; font-weight:700; color:#00bfff; white-space:nowrap; }
+    .rate-row.highlight .rate-val { color:#3fb950; }
+    .rates-note { margin-top:18px; font-size:14px; color:#6e7681; font-style:italic; text-align:center; line-height:1.6; border-top:1px solid rgba(255,255,255,.06); padding-top:14px; }
+    .feature-item { display:flex; align-items:flex-start; gap:14px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.05); }
     .feature-item:last-child { border-bottom:none; }
-    .feat-icon { font-size:22px; flex-shrink:0; margin-top:1px; }
-    .feature-item strong { font-family:'Cinzel',serif; font-size:18px; letter-spacing:.5px; color:#fff; display:block; margin-bottom:2px; }
-    .feature-item span { font-size:17px; color:#a09880; font-weight:700; }
+    .feat-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
+    .feature-item strong { font-family:'Cinzel',serif; font-size:15px; letter-spacing:.5px; color:#e6edf3; display:block; margin-bottom:2px; }
+    .feature-item span { font-size:14px; color:#6e7681; font-weight:400; }
 
 
     /* ─── Mods tabs ──────────────────────────────────────── */
