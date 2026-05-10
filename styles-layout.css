@@ -8,10 +8,31 @@
     @media(max-width:700px) { .wrap { padding: 0 24px; } }
 
 /* ─── Sections ──────────────────────────────────────── */
-    .section { margin:0 0 64px; }
+    .section { margin:0; padding-bottom:64px; }
     .sec-header { display:flex; align-items:center; gap:20px; margin-bottom:34px; }
-    .sec-title { font-family:'Cinzel',serif; font-size:24px; font-weight:700; color:var(--gold); letter-spacing:3px; white-space:nowrap; }
-    .sec-rule { flex:1; height:1px; background:linear-gradient(90deg,rgba(201,168,76,.3),transparent); }
+    .sec-title {
+      font-family:'Cinzel',serif; font-size:24px; font-weight:700;
+      color:var(--gold2); letter-spacing:3px; white-space:nowrap;
+      text-shadow:0 0 20px rgba(201,168,76,.2);
+    }
+    .sec-rule { flex:1; height:1px; background:linear-gradient(90deg,rgba(201,168,76,.45),rgba(201,168,76,.1),transparent); }
+
+/* ─── Séparateurs entre sections ────────────────────── */
+    .section-sep {
+      display:flex; align-items:center; gap:0;
+      margin:0 0 56px; height:24px;
+    }
+    .section-sep::before,
+    .section-sep::after {
+      content:''; flex:1; height:1px;
+    }
+    .section-sep::before { background:linear-gradient(90deg,transparent,rgba(201,168,76,.25)); }
+    .section-sep::after  { background:linear-gradient(90deg,rgba(201,168,76,.25),transparent); }
+    .section-sep span {
+      padding:0 22px; color:rgba(201,168,76,.4);
+      font-family:'Cinzel',serif; font-size:13px; letter-spacing:8px;
+      text-shadow:0 0 12px rgba(201,168,76,.3);
+    }
 
 /* ─── Règles ────────────────────────────────────────── */
     .rules-list { display:grid; gap:10px; }
@@ -33,6 +54,11 @@
     @media(max-width:680px){ .two-col { grid-template-columns:1fr; } }
     .rates-card, .features-card {
       background:rgba(10,12,20,0.88); border:1px solid rgba(201,168,76,.15); border-radius:8px; padding:30px;
+      transition:all .25s;
+    }
+    .rates-card:hover, .features-card:hover {
+      border-color:rgba(201,168,76,.3); background:rgba(14,17,25,0.95);
+      box-shadow:0 8px 32px rgba(0,0,0,.3), inset 0 0 40px rgba(201,168,76,.03);
     }
     .rates-title { font-family:'Cinzel',serif; font-size:26px; letter-spacing:1.5px; color:var(--gold); margin-bottom:16px; font-weight:700; }
     .rate-row { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06); }
@@ -68,8 +94,9 @@
     .why-tagline { font-size:17px; color:var(--muted); font-style:italic; margin-bottom:8px; line-height:1.6; }
     .why-title { font-family:'Cinzel',serif; font-size:26px; font-weight:900; color:var(--gold); letter-spacing:1px; line-height:1.2; margin-bottom:10px; }
     .why-sub { font-size:18px; color:var(--text); font-style:italic; line-height:1.7; font-weight:300; }
-    .why-check { font-size:17px; color:var(--text); padding:9px 0; border-bottom:1px solid rgba(255,255,255,.04); display:flex; align-items:center; gap:10px; }
+    .why-check { font-size:17px; color:var(--text); padding:9px 0; border-bottom:1px solid rgba(255,255,255,.04); display:flex; align-items:center; gap:10px; transition:color .2s, padding-left .2s; }
     .why-check:last-child { border-bottom:none; }
+    .why-check:hover { color:#fff; padding-left:6px; }
     .why-check::before { content:''; display:none; }
 
 /* ─── Responsive ─────────────────────────────────────── */

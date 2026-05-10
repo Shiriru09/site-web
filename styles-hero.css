@@ -29,8 +29,9 @@
     .tagline {
       font-size:26px !important; color:#ffffff !important;
       font-weight:700 !important; font-style:normal !important;
-      margin:22px auto 42px; max-width:500px;
-      line-height:1.85; text-shadow:2px 2px 8px rgba(0,0,0,0.8);
+      margin:22px auto 42px; max-width:520px;
+      line-height:1.9; letter-spacing:.3px;
+      text-shadow:0 2px 12px rgba(0,0,0,.9), 0 0 40px rgba(0,0,0,.6);
     }
     .cta-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
     .btn-main {
@@ -41,7 +42,7 @@
       font-family:'Cinzel',serif; font-size:12px; letter-spacing:2px;
       cursor:pointer; transition:all .25s; text-decoration:none;
     }
-    .btn-main:hover { transform:translateY(-2px); box-shadow:0 10px 35px rgba(139,26,26,.55); }
+    .btn-main:hover { transform:translateY(-3px); box-shadow:0 12px 40px rgba(139,26,26,.65), 0 0 20px rgba(192,57,43,.2); filter:brightness(1.1); }
     .btn-ghost {
       display:inline-flex; align-items:center; gap:10px;
       background:transparent; color:var(--gold);
@@ -49,11 +50,16 @@
       font-family:'Cinzel',serif; font-size:12px; letter-spacing:2px;
       cursor:pointer; transition:all .25s; text-decoration:none;
     }
-    .btn-ghost:hover { background:rgba(201,168,76,.08); transform:translateY(-2px); }
+    .btn-ghost:hover { background:rgba(201,168,76,.12); border-color:rgba(201,168,76,.6); color:var(--gold2); transform:translateY(-3px); box-shadow:0 8px 28px rgba(201,168,76,.15); }
     .hero-badges { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:36px; }
     .hero-badge {
       font-family:'Cinzel',serif; font-size:16px; font-weight:700; letter-spacing:1px;
       padding:12px 20px; border-radius:5px;
       background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.3);
-      color:#e8dfc0;
+      color:#e8dfc0; transition:all .22s;
+    }
+    .hero-badge:hover {
+      background:rgba(201,168,76,.18); border-color:rgba(201,168,76,.55);
+      color:#fff; transform:translateY(-2px);
+      box-shadow:0 6px 20px rgba(201,168,76,.12);
     }
