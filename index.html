@@ -367,10 +367,10 @@
 
     /* ─── Plugins exclusifs ──────────────────────────────── */
     .plugin-label { font-family:'Cinzel',serif; font-size:16px; font-weight:600; letter-spacing:2px; color:#c8bfa8; margin-bottom:14px; text-transform:uppercase; }
-    .plugins-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:16px; }
+    .plugins-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:16px; align-items:stretch; }
     .plugin-card {
       background:var(--bg2); border:1px solid rgba(201,168,76,.12); border-radius:8px;
-      padding:20px 22px; transition:all .2s;
+      padding:20px 22px; transition:all .2s; overflow:hidden;
     }
     .plugin-card:hover { border-color:rgba(201,168,76,.35); background:var(--bg3); transform:translateY(-2px); }
     .plugin-card.featured { border-left:3px solid var(--gold3); }
@@ -385,7 +385,7 @@
       padding:3px 10px; border-radius:3px;
       background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.3); color:var(--gold);
     }
-    .plugin-desc { font-size:17px; color:#b0a88a; line-height:1.75; font-weight:400; }
+    .plugin-desc { font-size:17px; color:#cccccc; line-height:1.75; font-weight:400; }
 
     /* ─── Mods grid ──────────────────────────────────────── */
         .mod-card {
