@@ -1158,6 +1158,7 @@
       <button class="galerie-tab active" onclick="switchGalerie(this,'gdinos')">🦕 Dinos</button>
       <button class="galerie-tab" onclick="switchGalerie(this,'gbases')">🏠 Bases</button>
       <button class="galerie-tab" onclick="switchGalerie(this,'gevents')">🎉 Événements</button>
+      <button class="galerie-tab" onclick="switchGalerie(this,'gpaysages')">🏔️ Paysages</button>
     </div>
     <div class="galerie-content" id="gdinos">
       <div class="galerie-grid" id="grid-dinos">
@@ -1171,6 +1172,11 @@
     </div>
     <div class="galerie-content hidden" id="gevents">
       <div class="galerie-grid" id="grid-evenements">
+        <div class="galerie-loading">⏳ Chargement des photos...</div>
+      </div>
+    </div>
+    <div class="galerie-content hidden" id="gpaysages">
+      <div class="galerie-grid" id="grid-paysages">
         <div class="galerie-loading">⏳ Chargement des photos...</div>
       </div>
     </div>
@@ -1448,6 +1454,7 @@
         renderGalerie(data.galerie.dinos,      'grid-dinos');
         renderGalerie(data.galerie.bases,       'grid-bases');
         renderGalerie(data.galerie.evenements,  'grid-evenements');
+        renderGalerie(data.galerie.paysages,     'grid-paysages');
       }
 
     } catch(e) {
