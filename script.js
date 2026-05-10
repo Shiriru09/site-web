@@ -131,6 +131,25 @@
 
   document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
 
+  /* ── Menu hamburger mobile ───────────────────────── */
+  (function() {
+    const toggle = document.getElementById('nav-toggle');
+    const links  = document.getElementById('nav-links');
+    if (!toggle || !links) return;
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
   /* ── Fetch Discord members + maps + galerie ─────── */
   async function fetchDiscordStats() {
     try {

@@ -3,17 +3,17 @@
 /* ─── Mascotte ──────────────────────────────────────── */
     .mascot {
       position: fixed;
-      top: 110px;
+      top: 82px;
       width: 100px;
       height: 100px;
       object-fit: contain;
-      z-index: 50;
+      z-index: 140;
       filter: drop-shadow(0 0 18px rgba(88,130,242,0.45));
       pointer-events: none;
       border-radius: 50%;
     }
-    .mascot-left  { left: 0px; animation: mascot-float 4s ease-in-out infinite; }
-    .mascot-right { right: 0px; animation: mascot-float-r 4s ease-in-out infinite; animation-delay: -2s; }
+    .mascot-left  { left: 8px; animation: mascot-float 4s ease-in-out infinite; }
+    .mascot-right { right: 8px; animation: mascot-float-r 4s ease-in-out infinite; animation-delay: -2s; }
     @keyframes mascot-float {
       0%,100% { transform: translateY(0); }
       50%      { transform: translateY(-8px); }
@@ -22,7 +22,7 @@
       0%,100% { transform: scaleX(-1) translateY(0); }
       50%      { transform: scaleX(-1) translateY(-8px); }
     }
-    @media(max-width:1100px){ .mascot { width:75px; height:75px; top:95px; } }
+    @media(max-width:1100px){ .mascot { width:75px; height:75px; top:82px; } }
     @media(max-width:700px) { .mascot { display:none; } }
 
 /* ─── Ambiance : braises & lueurs ──────────────────── */
