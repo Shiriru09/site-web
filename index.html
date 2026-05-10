@@ -188,12 +188,16 @@
     .btn-main:hover { transform:translateY(-2px); box-shadow:0 10px 35px rgba(139,26,26,.55); }
     .btn-ghost {
       display:inline-flex; align-items:center; gap:10px;
-      background:transparent; color:var(--gold);
-      padding:15px 32px; border:1px solid rgba(201,168,76,.35); border-radius:4px;
-      font-family:'Cinzel',serif; font-size:12px; letter-spacing:2px;
-      cursor:pointer; transition:all .25s; text-decoration:none;
+      background:rgba(201,168,76,.12); color:var(--gold2);
+      padding:15px 36px; border:2px solid rgba(201,168,76,.6); border-radius:4px;
+      font-family:'Cinzel',serif; font-size:14px; letter-spacing:2px; font-weight:700;
+      cursor:pointer; transition:all .3s; text-decoration:none;
     }
-    .btn-ghost:hover { background:rgba(201,168,76,.08); transform:translateY(-2px); }
+    .btn-ghost:hover {
+      background:rgba(201,168,76,.22); transform:translateY(-3px);
+      box-shadow:0 0 28px rgba(201,168,76,.45), 0 8px 32px rgba(201,168,76,.2);
+      border-color:rgba(201,168,76,.95); color:#fff;
+    }
 
     /* ─── Stats ─────────────────────────────────────────── */
     .stats-grid {
@@ -525,6 +529,41 @@
       nav { flex-wrap:wrap; gap:12px; }
       .join-block { padding:36px 20px; }
     }
+  
+    /* ─── Fade-in scroll ─────────────────────────────────────── */
+    .fade-in { opacity:0; transform:translateY(28px); transition:opacity .6s ease, transform .6s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+
+    /* ─── FAQ ───────────────────────────────────────────────── */
+    .faq-list { display:grid; gap:8px; }
+    .faq-item { background:var(--bg2); border:1px solid rgba(201,168,76,.15); border-radius:6px; overflow:hidden; }
+    .faq-q {
+      width:100%; display:flex; justify-content:space-between; align-items:center;
+      padding:18px 24px; background:none; border:none; cursor:pointer;
+      font-family:'Cinzel',serif; font-size:15px; font-weight:600; color:#e8dfc0;
+      text-align:left; transition:background .2s; gap:16px;
+    }
+    .faq-q:hover { background:rgba(201,168,76,.06); color:var(--gold2); }
+    .faq-q.open { color:var(--gold); background:rgba(201,168,76,.06); }
+    .faq-icon { font-size:22px; font-weight:300; transition:transform .3s; flex-shrink:0; line-height:1; }
+    .faq-q.open .faq-icon { transform:rotate(45deg); }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+    .faq-a.open { max-height:400px; }
+    .faq-a p { padding:4px 24px 20px; font-size:16px; color:var(--muted); line-height:1.75; }
+    .faq-a strong { color:#e8dfc0; }
+
+    /* ─── Nav server status ──────────────────────────────────── */
+    .nav-status {
+      display:flex; align-items:center; gap:6px;
+      font-family:'Cinzel',serif; font-size:11px; letter-spacing:1px;
+      padding:6px 14px; border-radius:3px;
+      border:1px solid rgba(87,242,135,.25); background:rgba(87,242,135,.06);
+      color:rgba(87,242,135,.85); white-space:nowrap;
+    }
+    .nav-status.offline { border-color:rgba(239,68,68,.3); background:rgba(239,68,68,.06); color:rgba(239,68,68,.8); }
+    .nav-dot { width:7px; height:7px; border-radius:50%; background:#57F287; flex-shrink:0; }
+    .nav-dot.offline { background:#ef4444; }
+    @media(max-width:900px){ .nav-status { display:none; } }
   </style>
 </head>
 <body>
@@ -546,6 +585,10 @@
         <div class="logo-sub">ARK Survival Ascended</div>
       </div>
     </a>
+    <div class="nav-status" id="nav-status">
+      <div class="nav-dot" id="nav-server-dot"></div>
+      <span id="nav-server-text">Connexion...</span>
+    </div>
     <button class="nav-toggle" id="nav-toggle" aria-label="Menu">&#9776;</button>
     <div class="nav-links" id="nav-links">
       <a href="#serveur"  class="nav-link">Maps</a>
@@ -1094,6 +1137,47 @@
   </div>
 
   <!-- ── Connexion Discord OAuth2 ────────────────── -->
+
+  <!-- ── FAQ ────────────────────────────────────────── -->
+  <div class="section" id="faq">
+    <div class="sec-header">
+      <div class="sec-title">FAQ</div>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Comment rejoindre le serveur ?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Rejoignez notre <strong>Discord</strong>, acceptez le règlement dans #admission, puis lancez ARK Survival Ascended. Recherchez <strong>"ValhallArk"</strong> dans la liste des serveurs ou ajoutez l'IP directement en favori. Le cluster compte 9 maps disponibles.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Le serveur est-il gratuit ?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Oui, entièrement <strong>gratuit</strong>. Une boutique en jeu est disponible avec des ressources cosmétiques. Le serveur est <strong>non pay-to-win</strong> : aucun avantage compétitif n'est vendu.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Y a-t-il un starter pack pour les nouveaux ?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Oui ! Tapez <strong>/starter</strong> en jeu pour recevoir un pack de départ incluant des ressources de base, des outils et de la nourriture pour bien commencer votre aventure sur le Valhalla.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Quelles sont les règles principales ?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Le serveur est <strong>PVE pur</strong> — aucune destruction de base ou vol autorisé. Discord et <strong>+18 ans</strong> sont obligatoires. Le respect de la communauté est exigé. Consultez la section <a href="#regles" style="color:var(--gold);">Règlement</a> pour la liste complète.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Combien de maps sont disponibles ?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Le cluster comporte <strong>9 maps</strong> : The Island, Scorched Earth, Aberration, Extinction, The Center, Ragnarok, Valguero, Crystal Isles et Genesis 2. Toutes sont accessibles depuis n'importe quel point de transfert.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Comment signaler un problème ou un joueur ?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Rendez-vous sur le <strong>Discord</strong> dans le canal <strong>#support</strong> ou <strong>#signalement</strong>. Les admins sont présents quotidiennement. En cas d'urgence, mentionnez @Admin directement dans le salon approprié.</p></div>
+      </div>
+
+    </div>
+  </div>
   <div class="section" id="rejoindre">
     <div class="join-block">
       <h2>Entrez au Valhalla</h2>
@@ -1309,6 +1393,59 @@
   }
   fetchDiscordStats();
   setInterval(fetchDiscordStats, 24 * 60 * 60 * 1000);
+
+  /* ── FAQ accordion ─────────────────────────────────── */
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.classList.remove('open');
+      q.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+  }
+
+  /* ── Fade-in on scroll (IntersectionObserver) ───────── */
+  (function(){
+    const targets = document.querySelectorAll('.plugin-card, .stat-box, .mod-card, .rates-card, .features-card, .faq-item, .map-card');
+    targets.forEach(el => el.classList.add('fade-in'));
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    targets.forEach(el => obs.observe(el));
+  })();
+
+  /* ── Statut serveur BattleMetrics ───────────────────── */
+  async function fetchServerStatus() {
+    try {
+      const res = await fetch('https://api.battlemetrics.com/servers?filter[search]=valhallark&page[size]=5');
+      const data = await res.json();
+      const server = data.data?.[0];
+      if (!server) return;
+      const online  = server.attributes.status === 'online';
+      const players = server.attributes.players ?? 0;
+      const maxP    = server.attributes.maxPlayers ?? 0;
+      const dot = document.getElementById('server-dot');
+      const txt = document.getElementById('server-status-text');
+      const pEl = document.getElementById('server-players');
+      if (dot) { dot.style.background = online ? '#57F287' : '#ef4444'; dot.style.boxShadow = online ? '0 0 8px #57F287' : '0 0 8px #ef4444'; }
+      if (txt) txt.textContent = online ? 'SERVEUR EN LIGNE' : 'HORS LIGNE';
+      if (pEl) pEl.textContent = online ? players + '/' + maxP + ' joueurs' : '';
+      const navEl  = document.getElementById('nav-status');
+      const navDot = document.getElementById('nav-server-dot');
+      const navTxt = document.getElementById('nav-server-text');
+      if (navEl)  navEl.className  = 'nav-status' + (online ? '' : ' offline');
+      if (navDot) navDot.className = 'nav-dot'    + (online ? '' : ' offline');
+      if (navTxt) navTxt.textContent = online ? players + ' joueurs' : 'Hors ligne';
+    } catch(e) { console.warn('BattleMetrics:', e); }
+  }
+  fetchServerStatus();
+  setInterval(fetchServerStatus, 5 * 60 * 1000);
 </script>
 </body>
 </html>
