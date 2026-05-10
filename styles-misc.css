@@ -1,0 +1,152 @@
+﻿
+    /* ─── Reset & Base ─────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --gold:   #C9A84C;
+      --gold2:  #E8C76A;
+      --gold3:  #8B6914;
+      --red:    #8B1A1A;
+      --red2:   #A93226;
+      --bg:     #080A0F;
+      --bg2:    #0E1119;
+      --bg3:    #141820;
+      --text:   #D4C9A8;
+      --muted:  #8A7F65;
+
+      /* ── Discord OAuth2 – remplissez ces deux valeurs ── */
+      --discord-client-id: YOUR_CLIENT_ID;
+      --discord-redirect:  http://localhost/callback; /* remplacez par votre URL */
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #080A0F url("./bg.jpg") center 20% / 110% auto fixed no-repeat;
+      color: var(--text);
+      font-family: 'Crimson Pro', serif;
+      font-size: 18px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── Mascotte ──────────────────────────────────────── */
+    .mascot {
+      position: fixed;
+      top: 110px;
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      z-index: 50;
+      filter: drop-shadow(0 0 18px rgba(88,130,242,0.45));
+      pointer-events: none;
+      border-radius: 50%;
+    }
+    .mascot-left  { left: 0px; animation: mascot-float 4s ease-in-out infinite; }
+    .mascot-right { right: 0px; animation: mascot-float-r 4s ease-in-out infinite; animation-delay: -2s; }
+    @keyframes mascot-float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    @keyframes mascot-float-r {
+      0%,100% { transform: scaleX(-1) translateY(0); }
+      50%      { transform: scaleX(-1) translateY(-8px); }
+    }
+    @media(max-width:1100px){ .mascot { width:75px; height:75px; top:95px; } }
+    @media(max-width:700px) { .mascot { display:none; } }
+
+    /* ─── Ambiance : braises & lueurs ──────────────────── */
+    #embers { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .ember {
+      position: absolute;
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: rise var(--d, 7s) ease-in infinite var(--delay, 0s);
+      opacity: 0;
+    }
+    @keyframes rise {
+      0%   { transform: translate(0,0) scale(1);   opacity: .8; }
+      60%  { opacity: .4; }
+      100% { transform: translate(var(--dx,20px), -90vh) scale(.2); opacity: 0; }
+    }
+    .glow-bg {
+      position: fixed; pointer-events: none; z-index: 0;
+      border-radius: 50%; filter: blur(130px);
+    }
+    .g1 { width:700px; height:450px; background:rgba(139,26,26,.14); top:-60px; left:50%; transform:translateX(-50%); }
+    .g2 { width:450px; height:350px; background:rgba(201,168,76,.07); bottom:5%; right:-80px; }
+    .bg-texture {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: rgba(3,4,10,0.35);
+    }
+    .bg-texture2 {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.015) 2px,rgba(0,0,0,.015) 4px);
+    }
+
+
+    /* ─── Stats ─────────────────────────────────────────── */
+    .stats-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:1px; background:rgba(201,168,76,.15);
+      border:1px solid rgba(201,168,76,.15); border-radius:6px;
+      overflow:hidden; margin:56px 0;
+    }
+    .stat-box { background:var(--bg2); padding:30px; text-align:center; }
+    .stat-num { font-family:'Cinzel',serif; font-size:48px; font-weight:700; color:var(--gold); line-height:1; }
+    .stat-lbl { font-size:15px; color:var(--muted); letter-spacing:2.5px; text-transform:uppercase; margin-top:7px; font-family:'Cinzel',serif; font-weight:700 !important; }
+
+
+    /* ─── Footer ─────────────────────────────────────────── */
+    footer {
+      border-top:1px solid rgba(201,168,76,.12);
+      padding:28px 0;
+      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+    }
+    .footer-logo { font-family:'Cinzel',serif; font-size:18px; font-weight:700; color:var(--gold); letter-spacing:2px; }
+    .footer-txt  { font-size:16px; color:#c8bfa8; font-weight:500; }
+    .footer-discord {
+      display:flex; align-items:center; gap:8px;
+      font-family:'Cinzel',serif; font-size:18px; font-weight:700; color:#5865F2;
+      text-decoration:none; letter-spacing:1px;
+      transition:color .2s;
+    }
+    .footer-discord:hover { color:#7289DA; }
+
+
+    /* ─── Stats 2 colonnes ───────────────────────────────── */
+    .stats-grid-2 { grid-template-columns: repeat(2,1fr); max-width: 500px; margin-left:auto; margin-right:auto; }
+
+
+    /* ─── Maps cluster ───────────────────────────────────── */
+    .maps-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; }
+    .mods-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px; }    .map-card {
+      background:rgba(10,12,20,0.85); border:1px solid rgba(201,168,76,.1); border-radius:8px;
+      padding:26px 28px; transition:all .2s;
+    }
+    .map-card:hover { border-color:rgba(201,168,76,.3); background:var(--bg3); transform:translateY(-2px); }
+    .map-card[data-status="offline"] { opacity:.65; }
+    .map-header { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+    .map-dot { width:13px; height:13px; border-radius:50%; flex-shrink:0; }
+    .map-name { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:#fff; flex:1; letter-spacing:.5px; }
+    .map-badge {
+      font-size:13px; letter-spacing:1.5px; font-family:'Cinzel',serif;
+      padding:3px 10px; border-radius:3px;
+    }
+    .map-badge.online  { background:rgba(87,242,135,.1); color:rgba(87,242,135,.85); border:1px solid rgba(87,242,135,.2); }
+    .map-badge.offline { background:rgba(239,68,68,.1);  color:rgba(239,68,68,.75);  border:1px solid rgba(239,68,68,.2); }
+    .map-desc { font-size:18px; color:#b0a88a; line-height:1.75; font-weight:400; }
+
+
+    /* ─── Back to top ────────────────────────────────────────── */
+    #back-top {
+      position:fixed; bottom:32px; right:32px; z-index:400;
+      width:46px; height:46px;
+      background:rgba(201,168,76,.12); border:1px solid rgba(201,168,76,.45);
+      border-radius:4px; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold2); font-size:20px;
+      opacity:0; visibility:hidden; transform:translateY(12px);
+      transition:opacity .3s, visibility .3s, transform .3s, background .2s, box-shadow .2s;
+    }
+    #back-top.visible { opacity:1; visibility:visible; transform:translateY(0); }
+    #back-top:hover { background:rgba(201,168,76,.25); box-shadow:0 0 20px rgba(201,168,76,.35); color:#fff; }
+  

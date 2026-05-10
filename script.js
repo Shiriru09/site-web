@@ -1,14 +1,10 @@
-
-  /* ── Tabs mods ─────────────────────────────────── */
+﻿  /* ── Tabs mods ─────────────────────────────────── */
   function switchTab(btn, tabId) {
     const isActive = btn.classList.contains('active');
     document.querySelectorAll('.mods-tab').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.mods-tab-content').forEach(t => t.classList.add('hidden'));
     const placeholder = document.getElementById('mods-placeholder');
-    if (isActive) {
-      if (placeholder) placeholder.style.display = '';
-      return;
-    }
+    if (isActive) { if (placeholder) placeholder.style.display = ''; return; }
     btn.classList.add('active');
     document.getElementById(tabId).classList.remove('hidden');
     if (placeholder) placeholder.style.display = 'none';
@@ -93,12 +89,7 @@
     }
     grid.innerHTML = photos.map(p => `
       <div class="galerie-card" onclick="openLightbox('${p.url}','${p.auteur}','${p.description}')">
-        <img src="${p.url}" alt="${p.description || p.auteur}" loading="lazy"
-             onerror="this.onerror=null;this.src='';this.closest('.galerie-card').querySelector('.galerie-img-placeholder').style.display='flex';this.style.display='none';">
-        <div class="galerie-img-placeholder" style="display:none;height:200px;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:rgba(201,168,76,.04);border-bottom:1px solid rgba(201,168,76,.1);">
-          <span style="font-size:32px;opacity:.4;">🏹</span>
-          <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:#8A7F65;text-transform:uppercase;">Image expirée</span>
-        </div>
+        <img src="${p.url}" alt="${p.description || p.auteur}" loading="lazy">
         <div class="galerie-info">
           <div class="galerie-auteur">${p.auteur}</div>
           ${p.description ? `<div class="galerie-desc">${p.description}</div>` : ''}
@@ -119,41 +110,27 @@
     document.getElementById('lightbox-img').src = '';
   }
 
-  /* Fermeture : bouton ✕, fond sombre, image */
-  (function() {
-    const lb    = document.getElementById('lightbox');
-    const img   = document.getElementById('lightbox-img');
-    const close = lb.querySelector('.lightbox-close');
-    close.addEventListener('click', () => closeLightbox());
-    lb.addEventListener('click',  e => { if (e.target === lb || e.target === img) closeLightbox(); });
-    img.addEventListener('click', () => closeLightbox());
-  })();
-
   document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
 
-  /* ── Menu hamburger mobile ───────────────────────── */
-  (function() {
+  /* ── Hamburger ─────────────────────────────────── */
+  (function(){
     const toggle = document.getElementById('nav-toggle');
     const links  = document.getElementById('nav-links');
     if (!toggle || !links) return;
     toggle.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      toggle.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', open);
+      links.classList.toggle('open');
+      toggle.classList.toggle('open');
     });
-    links.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        links.classList.remove('open');
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+    }));
   })();
 
   /* ── Fetch Discord members + maps + galerie ─────── */
   async function fetchDiscordStats() {
     try {
-      const res = await fetch('https://discord-members.desmetcyrille9.workers.dev/?t=' + Date.now());
+      const res = await fetch('https://discord-members.desmetcyrille9.workers.dev/');
       const data = await res.json();
 
       // Membres
@@ -187,6 +164,7 @@
         renderGalerie(data.galerie.dinos,      'grid-dinos');
         renderGalerie(data.galerie.bases,       'grid-bases');
         renderGalerie(data.galerie.evenements,  'grid-evenements');
+        renderGalerie(data.galerie.paysages,     'grid-paysages');
       }
 
     } catch(e) {
@@ -195,3 +173,119 @@
   }
   fetchDiscordStats();
   setInterval(fetchDiscordStats, 24 * 60 * 60 * 1000);
+
+  /* ── FAQ accordion ─────────────────────────────────── */
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.classList.remove('open');
+      q.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+  }
+
+  /* ── Fade-in on scroll (IntersectionObserver) ───────── */
+  (function(){
+    const targets = document.querySelectorAll('.plugin-card, .stat-box, .mod-card, .rates-card, .features-card, .faq-item, .map-card');
+    targets.forEach(el => el.classList.add('fade-in'));
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    targets.forEach(el => obs.observe(el));
+  })();
+
+
+  /* ── Loading screen ────────────────────────────────────── */
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (!loader) return;
+    setTimeout(() => loader.classList.add('hidden'), 1300);
+    loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+  });
+
+  /* ── Back to top ───────────────────────────────────────── */
+  (function(){
+    const btn = document.getElementById('back-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+  })();
+
+  /* ── Son ambiance viking ────────────────────────────────── */
+  (function(){
+    const btn    = document.getElementById('sound-btn');
+    const audio  = document.getElementById('ambient-audio');
+    const slider  = document.getElementById('sound-slider');
+    const volLabel = document.getElementById('sound-vol');
+    function updateVolLabel() {
+      if (volLabel) volLabel.textContent = Math.round(audio.volume * 100) + '%';
+    }
+    if (!btn || !audio) return;
+
+    let lastVol = 0.08;
+    audio.volume = 0.08;
+    if (slider) slider.value = 0.08;
+    let started = false;
+
+    function updateIcon() {
+      btn.textContent = audio.volume > 0 ? '🔊' : '🔇';
+    }
+
+    function onPlaying() {
+      started = true;
+      updateIcon();
+      btn.classList.add('playing');
+    }
+
+    // Slider : change volume en temps réel
+    if (slider) {
+      slider.addEventListener('input', function() {
+        audio.volume = parseFloat(slider.value);
+        if (audio.volume > 0) lastVol = audio.volume;
+        updateVolLabel();
+        updateIcon();
+        if (!started && audio.volume > 0) {
+          audio.play().then(function() { started = true; btn.classList.add('playing'); }).catch(function(){});
+        }
+      });
+    }
+
+    // Tentative de lecture immédiate au chargement
+    audio.play().then(onPlaying).catch(function() {
+      ['click', 'scroll'].forEach(function(evt) {
+        window.addEventListener(evt, function handler() {
+          if (started) { window.removeEventListener(evt, handler); return; }
+          audio.play().then(onPlaying).catch(function(e) { console.warn('Audio:', e); });
+          window.removeEventListener(evt, handler);
+        }, { once: true, passive: true });
+      });
+    });
+
+    // Bouton : mute / unmute
+    btn.addEventListener('click', async function(e) {
+      e.stopPropagation();
+      if (audio.volume > 0) {
+        lastVol = audio.volume;
+        audio.volume = 0;
+        if (slider) slider.value = 0;
+        btn.textContent = '🔇';
+        btn.classList.remove('playing');
+      } else {
+        audio.volume = lastVol || 0.08;
+        if (slider) slider.value = audio.volume;
+        updateIcon();
+        try {
+          await audio.play();
+          started = true;
+          btn.classList.add('playing');
+        } catch(err) { console.warn('Audio:', err); }
+      }
+    });
+  })();

@@ -1,3 +1,4 @@
+﻿    /* ─── Galerie ────────────────────────────────────────── */
     .galerie-tabs { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
     .galerie-tab {
       font-family:'Cinzel',serif; font-size:15px; font-weight:600; letter-spacing:1px;
@@ -8,13 +9,18 @@
     .galerie-tab.active { background:rgba(201,168,76,.15); border-color:var(--gold); color:var(--gold); }
     .galerie-tab:hover:not(.active) { border-color:rgba(201,168,76,.5); color:var(--text); }
     .galerie-content.hidden { display:none; }
-    .galerie-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+    .galerie-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px;
+    }
     .galerie-card {
       background:rgba(10,12,20,0.85); border:1px solid rgba(201,168,76,.12);
       border-radius:8px; overflow:hidden; transition:all .25s; cursor:pointer;
     }
     .galerie-card:hover { border-color:rgba(201,168,76,.4); transform:translateY(-4px); box-shadow:0 10px 30px rgba(0,0,0,.4); }
-    .galerie-card img { width:100%; height:200px; object-fit:cover; display:block; transition:transform .3s; }
+    .galerie-card img {
+      width:100%; height:200px; object-fit:cover; display:block;
+      transition:transform .3s;
+    }
     .galerie-card:hover img { transform:scale(1.05); }
     .galerie-info { padding:14px 16px; }
     .galerie-auteur { font-family:'Cinzel',serif; font-size:14px; font-weight:600; color:var(--gold); margin-bottom:4px; }
@@ -22,3 +28,9 @@
     .galerie-date { font-size:12px; color:var(--muted); margin-top:6px; }
     .galerie-empty { text-align:center; padding:48px; color:var(--muted); font-size:17px; font-style:italic; border:1px dashed rgba(201,168,76,.2); border-radius:8px; }
     .galerie-loading { text-align:center; padding:40px; color:var(--muted); font-size:16px; }
+    /* Lightbox */
+    .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:500; align-items:center; justify-content:center; }
+    .lightbox.open { display:flex; }
+    .lightbox img { max-width:90vw; max-height:85vh; object-fit:contain; border-radius:6px; }
+    .lightbox-close { position:absolute; top:20px; right:28px; color:#fff; font-size:36px; cursor:pointer; font-family:'Cinzel',serif; }
+    .lightbox-info { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); color:#c8bfa8; font-family:'Cinzel',serif; font-size:15px; text-align:center; }

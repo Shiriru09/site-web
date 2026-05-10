@@ -1,3 +1,22 @@
+﻿    /* ─── Règles ────────────────────────────────────────── */
+    .rules-list { display:grid; gap:10px; }
+    .rule {
+      background:var(--bg2);
+      border:1px solid rgba(201,168,76,.1); border-left:3px solid var(--gold3);
+      border-radius:4px; padding:20px 24px;
+      display:flex; gap:20px; align-items:flex-start;
+      transition:all .2s;
+    }
+    .rule:hover { border-left-color:var(--gold); background:var(--bg3); }
+    .rule-n { font-family:'Cinzel',serif; font-size:24px; font-weight:700; color:var(--gold3); min-width:34px; line-height:1.15; transition:color .2s; }
+    .rule:hover .rule-n { color:var(--gold); }
+    .rule h3 { font-family:'Cinzel',serif; font-size:16px; letter-spacing:1px; color:#fff; margin-bottom:6px; font-weight:600; }
+    .rule p  { font-size:17px; color:var(--muted); line-height:1.65; font-weight:300; }
+
+
+
+
+    /* ─── Règlement accordion ────────────────────────────── */
     .pve-banner {
       background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.4);
       border-left:4px solid #ef4444; border-radius:4px;
@@ -13,7 +32,7 @@
     }
     .accord-head:hover { background:rgba(201,168,76,.06); }
     .accord-icon { font-size:18px; flex-shrink:0; }
-    .accord-title { font-family:'Cinzel',serif; font-size:16px; font-weight:700; color:#fff; flex:1; letter-spacing:.8px; }
+    .accord-title { font-family:'Cinzel',serif; font-size:14px; font-weight:600; color:#fff; flex:1; letter-spacing:.8px; }
     .accord-arrow { font-size:11px; color:var(--gold3); transition:transform .25s; }
     .accord-head.active .accord-arrow { transform:rotate(180deg); }
     .accord-body {
@@ -27,9 +46,9 @@
     .rule-ul li.rule-warn { color:rgba(239,68,68,.9); }
     .rule-ul li.rule-warn::before { color:rgba(239,68,68,.7); }
     .rule-example { font-size:15px; color:var(--gold3); font-style:italic; }
-    .sanction-scale { display:grid; gap:8px; padding:0 20px 18px; }
+    .accord-title { font-family:'Cinzel',serif; font-size:16px; font-weight:700; color:#fff; flex:1; letter-spacing:.8px; }    .sanction-scale { display:grid; gap:8px; padding:0 20px 18px; }
     .sanction { padding:10px 16px; border-radius:4px; font-family:'Cinzel',serif; font-size:15px; letter-spacing:.5px; display:flex; justify-content:space-between; align-items:center; }
-    .sanction span { font-size:11px; opacity:.7; font-family:'Crimson Pro',serif; font-style:italic; }
+    .sanction span { font-size:14px; opacity:.9; font-family:'Crimson Pro',serif; font-style:italic; }
     .sanction.warn { background:rgba(234,179,8,.08); border:1px solid rgba(234,179,8,.25); color:rgba(234,179,8,.85); }
     .sanction.temp { background:rgba(249,115,22,.08); border:1px solid rgba(249,115,22,.25); color:rgba(249,115,22,.85); }
     .sanction.ban  { background:rgba(239,68,68,.08);  border:1px solid rgba(239,68,68,.25);  color:rgba(239,68,68,.85); }
@@ -39,3 +58,23 @@
       font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:#e8dfc0; letter-spacing:.5px; line-height:2;
     }
     .accept-banner span { font-size:17px; font-weight:500; color:#c8bfa8; font-family:'Crimson Pro',serif; font-style:italic; }
+
+
+    /* ─── FAQ ───────────────────────────────────────────────── */
+    .faq-list { display:grid; gap:8px; }
+    .faq-item { background:var(--bg2); border:1px solid rgba(201,168,76,.15); border-radius:6px; overflow:hidden; }
+    .faq-q {
+      width:100%; display:flex; justify-content:space-between; align-items:center;
+      padding:18px 24px; background:none; border:none; cursor:pointer;
+      font-family:'Cinzel',serif; font-size:15px; font-weight:600; color:#e8dfc0;
+      text-align:left; transition:background .2s; gap:16px;
+    }
+    .faq-q:hover { background:rgba(201,168,76,.06); color:var(--gold2); }
+    .faq-q.open { color:var(--gold); background:rgba(201,168,76,.06); }
+    .faq-icon { font-size:22px; font-weight:300; transition:transform .3s; flex-shrink:0; line-height:1; }
+    .faq-q.open .faq-icon { transform:rotate(45deg); }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+    .faq-a.open { max-height:400px; }
+    .faq-a p { padding:4px 24px 20px; font-size:16px; color:var(--muted); line-height:1.75; }
+    .faq-a strong { color:#e8dfc0; }
+  

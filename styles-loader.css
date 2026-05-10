@@ -1,0 +1,29 @@
+﻿    /* ─── Loading screen ────────────────────────────────────── */
+    #loader {
+      position:fixed; inset:0; z-index:9999;
+      background:#080A0F;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      transition:opacity .6s ease, visibility .6s ease;
+    }
+    #loader.hidden { opacity:0; visibility:hidden; }
+    .loader-rune { font-size:13px; letter-spacing:10px; color:rgba(201,168,76,.4); font-family:'Cinzel',serif; margin-bottom:24px; animation:loaderFadeIn .8s ease forwards; opacity:0; }
+    .loader-title {
+      font-family:'Cinzel',serif; font-size:clamp(32px,6vw,64px); font-weight:900;
+      color:#fff; letter-spacing:6px; line-height:1.1; text-align:center;
+      animation:loaderFadeIn .8s .2s ease forwards; opacity:0;
+    }
+    .loader-title span { color:#C9A84C; }
+    .loader-tagline {
+      font-family:'Cinzel',serif; font-size:13px; letter-spacing:3px; color:rgba(201,168,76,.55);
+      margin-top:10px; animation:loaderFadeIn .8s .4s ease forwards; opacity:0;
+    }
+    .loader-bar-wrap {
+      width:240px; height:2px; background:rgba(201,168,76,.15); border-radius:2px;
+      margin-top:40px; overflow:hidden; animation:loaderFadeIn .8s .5s ease forwards; opacity:0;
+    }
+    .loader-bar {
+      height:100%; width:0; background:linear-gradient(90deg,transparent,#C9A84C,#E8C76A,#C9A84C,transparent);
+      animation:loaderBar 1.4s .6s ease forwards;
+    }
+    @keyframes loaderFadeIn { to { opacity:1; } }
+    @keyframes loaderBar    { to { width:100%; } }
