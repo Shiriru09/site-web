@@ -595,6 +595,27 @@
     }
     #back-top.visible { opacity:1; visibility:visible; transform:translateY(0); }
     #back-top:hover { background:rgba(201,168,76,.25); box-shadow:0 0 20px rgba(201,168,76,.35); color:#fff; }
+  
+    /* ─── Curseur épée viking ────────────────────────────────── */
+    * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='3' y1='3' x2='21' y2='21' stroke='%23e8dfc0' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='16' y1='26' x2='26' y2='16' stroke='%23e8dfc0' stroke-width='2' stroke-linecap='round'/%3E%3Cline x1='21' y1='21' x2='29' y2='29' stroke='%23C9A84C' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='29' cy='29' r='2.5' fill='%23C9A84C'/%3E%3C/svg%3E") 3 3, auto; }
+    a, button, [onclick], label, .mods-tab, .galerie-tab, .faq-q, .nav-link, .nav-join, .btn-main, .btn-ghost, .btn-discord, .btn-vote, .back-top, #back-top { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='3' y1='3' x2='21' y2='21' stroke='%23E8C76A' stroke-width='2.5' stroke-linecap='round' opacity='.4'/%3E%3Cline x1='3' y1='3' x2='21' y2='21' stroke='%23fff8e0' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='16' y1='26' x2='26' y2='16' stroke='%23E8C76A' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='21' y1='21' x2='29' y2='29' stroke='%23E8C76A' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='29' cy='29' r='3' fill='%23E8C76A'/%3E%3C/svg%3E") 3 3, pointer; }
+
+    /* ─── Bouton son ambiance ────────────────────────────────── */
+    #sound-btn {
+      position:fixed; bottom:32px; left:32px; z-index:400;
+      width:46px; height:46px;
+      background:rgba(201,168,76,.12); border:1px solid rgba(201,168,76,.45);
+      border-radius:4px; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='3' y1='3' x2='21' y2='21' stroke='%23E8C76A' stroke-width='2.5' stroke-linecap='round' opacity='.4'/%3E%3Cline x1='3' y1='3' x2='21' y2='21' stroke='%23fff8e0' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='16' y1='26' x2='26' y2='16' stroke='%23E8C76A' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='21' y1='21' x2='29' y2='29' stroke='%23E8C76A' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='29' cy='29' r='3' fill='%23E8C76A'/%3E%3C/svg%3E") 3 3, pointer;
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px; color:var(--gold2);
+      transition:background .2s, box-shadow .2s;
+    }
+    #sound-btn:hover { background:rgba(201,168,76,.25); box-shadow:0 0 20px rgba(201,168,76,.35); }
+    #sound-btn.playing { animation:soundPulse 2s ease-in-out infinite; }
+    @keyframes soundPulse {
+      0%,100% { box-shadow:0 0 6px rgba(201,168,76,.3); }
+      50%      { box-shadow:0 0 22px rgba(201,168,76,.6), 0 0 40px rgba(201,168,76,.2); }
+    }
   </style>
 </head>
 <body>
@@ -617,6 +638,10 @@
 </div>
 
 <!-- ── Back to top ──────────────────────────────────────── -->
+<!-- ── Son ambiance viking ──────────────────────────────── -->
+<!-- Remplacez src="" par l'URL de votre fichier audio (mp3/ogg) -->
+<audio id="ambient-audio" loop preload="none" src=""></audio>
+<button id="sound-btn" aria-label="Musique ambiance" title="Activer la musique d'ambiance">🎵</button>
 <button id="back-top" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
 <nav>
     <a class="logo" href="#">
@@ -1474,6 +1499,34 @@
     window.addEventListener('scroll', () => {
       btn.classList.toggle('visible', window.scrollY > 400);
     }, { passive: true });
+  })();
+
+  /* ── Son ambiance viking ────────────────────────────────── */
+  (function(){
+    const btn   = document.getElementById('sound-btn');
+    const audio = document.getElementById('ambient-audio');
+    if (!btn || !audio) return;
+    let playing = false;
+    btn.addEventListener('click', async () => {
+      if (!audio.src || audio.src === window.location.href) {
+        btn.title = 'Aucun fichier audio configuré — ajoutez src= dans #ambient-audio';
+        return;
+      }
+      try {
+        if (playing) {
+          audio.pause();
+          playing = false;
+          btn.textContent = '🎵';
+          btn.classList.remove('playing');
+        } else {
+          audio.volume = 0.35;
+          await audio.play();
+          playing = true;
+          btn.textContent = '🔊';
+          btn.classList.add('playing');
+        }
+      } catch(e) { console.warn('Audio:', e); }
+    });
   })();
 </script>
 </body>
