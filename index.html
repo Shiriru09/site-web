@@ -1591,6 +1591,7 @@
       slider.addEventListener('input', function() {
         audio.volume = parseFloat(slider.value);
         if (audio.volume > 0) lastVol = audio.volume;
+        updateVolLabel();
         updateIcon();
         if (!started && audio.volume > 0) {
           audio.play().then(function() { started = true; btn.classList.add('playing'); }).catch(function(){});
