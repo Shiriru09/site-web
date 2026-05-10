@@ -92,6 +92,44 @@
     .mod-icon { font-size:26px; }
     .mod-name { font-family:'Cinzel',serif; font-size:15px; letter-spacing:.5px; color:#c8bfa8; line-height:1.4; font-weight:600; }
 
+    /* ─── Optimisation & Stabilite ──────────────────── */
+    .opt-section { margin-top:36px; }
+    .opt-title {
+      font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:var(--gold);
+      letter-spacing:1px; padding-bottom:10px; margin-bottom:6px;
+      border-bottom:1px solid rgba(201,168,76,.2);
+    }
+    .opt-subtitle { font-size:15px; color:#6e7681; font-style:italic; margin-bottom:18px; }
+    .opt-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media(max-width:680px){ .opt-grid { grid-template-columns:1fr; } }
+    .opt-card {
+      background:#0d1117; border-radius:10px; padding:22px 24px;
+      border:1px solid rgba(255,255,255,.08); border-left:3px solid;
+    }
+    .opt-card-cyan  { border-left-color:#00bfff; }
+    .opt-card-green { border-left-color:#3fb950; }
+    .opt-card-head {
+      font-family:'Cinzel',serif; font-size:17px; font-weight:700;
+      margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .opt-card-cyan  .opt-card-head { color:#00bfff; }
+    .opt-card-green .opt-card-head { color:#3fb950; }
+    .opt-card-body { display:flex; flex-direction:column; gap:4px; }
+    .reboot-row {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:8px 0; border-bottom:1px solid rgba(255,255,255,.05); gap:12px;
+    }
+    .reboot-row:last-child { border-bottom:none; }
+    .reboot-maps { font-size:14px; color:#c9d1d9; }
+    .reboot-time  { font-family:'Cinzel',serif; font-size:14px; font-weight:700; color:#00bfff; white-space:nowrap; }
+    .opt-alert {
+      margin-top:14px; font-size:13px; color:#f0883e; font-weight:600; line-height:1.5;
+      background:rgba(240,136,62,.08); border-radius:4px; padding:8px 12px;
+    }
+    .dino-rotate { font-size:26px; text-align:center; margin-bottom:12px; letter-spacing:8px; }
+    .opt-card-body p { font-size:15px; color:#c9d1d9; line-height:1.65; }
+    .opt-card-body p strong { color:#00bfff; font-family:'Cinzel',serif; }
+
     /* ─── Plugin accordion ───────────────────────────── */
     .plugin-acc-btn {
       display:inline-flex; align-items:center; gap:6px; margin-top:14px;
