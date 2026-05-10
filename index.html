@@ -602,7 +602,7 @@
 
     /* ─── Bouton son ambiance ────────────────────────────────── */
     #sound-btn {
-      position:fixed; bottom:32px; right:88px; z-index:400;
+      position:fixed; bottom:32px; left:32px; z-index:400;
       width:46px; height:46px;
       background:rgba(201,168,76,.12); border:1px solid rgba(201,168,76,.45);
       border-radius:4px;
@@ -640,7 +640,7 @@
 <!-- ── Back to top ──────────────────────────────────────── -->
 <!-- ── Son ambiance viking ──────────────────────────────── -->
 <!-- Remplacez src="u_i55jmib5w1-vikingmusik-360983.mp3" par l'URL de votre fichier audio (mp3/ogg) -->
-<audio id="ambient-audio" loop preload="none" src="u_i55jmib5w1-vikingmusik-360983.mp3"></audio>
+<audio id="ambient-audio" loop autoplay preload="auto" src="u_i55jmib5w1-vikingmusik-360983.mp3"></audio>
 <button id="sound-btn" aria-label="Musique ambiance" title="Activer la musique d'ambiance">🔇</button>
 <button id="back-top" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
 <nav>
@@ -1506,38 +1506,38 @@
     const btn   = document.getElementById('sound-btn');
     const audio = document.getElementById('ambient-audio');
     if (!btn || !audio) return;
-    audio.volume = 0.2;
+    audio.volume = 0.10;
     let started = false;
 
-    async function startAudio() {
-      if (started) return;
+    function onPlaying() {
       started = true;
-      try {
-        await audio.play();
-        btn.textContent = '🔊';
-        btn.classList.add('playing');
-      } catch(e) { console.warn('Audio autostart:', e); }
+      btn.textContent = '🔊';
+      btn.classList.add('playing');
     }
 
-    // Démarrage automatique au premier clic ou scroll (one-shot)
-    ['click','scroll'].forEach(function(evt) {
-      window.addEventListener(evt, function handler() {
-        startAudio();
-        window.removeEventListener(evt, handler);
-      }, { once: true, passive: true });
+    // Tentative de lecture immédiate au chargement
+    audio.play().then(onPlaying).catch(function() {
+      // Navigateur bloque l'autoplay : fallback sur premier clic/scroll
+      ['click', 'scroll'].forEach(function(evt) {
+        window.addEventListener(evt, function handler() {
+          if (started) { window.removeEventListener(evt, handler); return; }
+          audio.play().then(onPlaying).catch(function(e) { console.warn('Audio:', e); });
+          window.removeEventListener(evt, handler);
+        }, { once: true, passive: true });
+      });
     });
 
     // Bouton : toggle mute/unmute
     btn.addEventListener('click', async function(e) {
-      e.stopPropagation(); // ne pas déclencher l'autostart via window
+      e.stopPropagation();
       if (!audio.paused) {
         audio.pause();
         btn.textContent = '🔇';
         btn.classList.remove('playing');
       } else {
-        started = true;
         try {
           await audio.play();
+          started = true;
           btn.textContent = '🔊';
           btn.classList.add('playing');
         } catch(err) { console.warn('Audio:', err); }
