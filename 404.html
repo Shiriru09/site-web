@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page introuvable | Valhall'Ark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --gold:  #C9A84C;
+      --gold2: #E8C76A;
+      --gold3: #8B6914;
+      --bg:    #080A0F;
+      --bg2:   #0E1119;
+      --bg3:   #141820;
+      --text:  #D4C9A8;
+      --muted: #8A7F65;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #080A0F url("bg.jpg") center 20% / 110% auto fixed no-repeat;
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 400;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Overlay sombre ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 10, 15, 0.72);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Navbar ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 64px;
+      background: rgba(8,10,15,.92);
+      border-bottom: 1px solid rgba(201,168,76,.18);
+      backdrop-filter: blur(6px);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon { font-size: 22px; }
+    .logo-text {
+      font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700;
+      color: var(--gold2); letter-spacing: 1.5px; line-height: 1.1;
+    }
+    .logo-sub { font-size: 11px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+    .nav-home {
+      font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600;
+      letter-spacing: 1.5px; color: var(--gold); text-decoration: none;
+      border: 1px solid rgba(201,168,76,.35); border-radius: 4px;
+      padding: 8px 18px; transition: all .2s;
+    }
+    .nav-home:hover { background: rgba(201,168,76,.12); border-color: var(--gold); color: var(--gold2); }
+
+    /* ── Contenu principal ── */
+    .wrap {
+      position: relative; z-index: 1;
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 100px 24px 60px;
+      text-align: center;
+    }
+
+    .notfound {
+      max-width: 680px;
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+    }
+
+    /* Runes décoratives supérieures */
+    .rune-row {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 28px;
+      opacity: .55;
+    }
+    .rune-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .rune-sym {
+      font-family: 'Cinzel', serif; font-size: 16px;
+      color: var(--gold3); letter-spacing: 8px;
+    }
+
+    /* Grand 404 */
+    .code-404 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(96px, 20vw, 160px);
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(160deg, #fff8e0 10%, #E8C76A 40%, #C9A84C 65%, #8B6914 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      letter-spacing: 8px;
+      filter: drop-shadow(0 0 32px rgba(201,168,76,.35));
+      margin-bottom: 8px;
+    }
+
+    /* Séparateur runique central */
+    .rune-divider {
+      display: flex; align-items: center; gap: 14px;
+      width: 100%; margin: 18px 0 28px;
+      opacity: .6;
+    }
+    .rune-divider .rune-line { opacity: 1; }
+    .rune-divider span {
+      font-size: 20px; color: var(--gold3);
+      letter-spacing: 10px; white-space: nowrap;
+    }
+
+    /* Message principal */
+    .msg-main {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: .5px;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    /* Sous-message */
+    .msg-sub {
+      font-size: 18px;
+      font-style: italic;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    /* Bouton retour */
+    .btn-home {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Cinzel', serif; font-size: 14px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+      color: var(--bg);
+      background: linear-gradient(135deg, #E8C76A, #C9A84C);
+      border: none; border-radius: 4px;
+      padding: 14px 32px;
+      box-shadow: 0 0 24px rgba(201,168,76,.35), inset 0 1px 0 rgba(255,255,255,.2);
+      transition: all .25s;
+      cursor: pointer;
+    }
+    .btn-home:hover {
+      background: linear-gradient(135deg, #fff0a0, #E8C76A);
+      box-shadow: 0 0 40px rgba(201,168,76,.55), 0 4px 20px rgba(201,168,76,.3);
+      transform: translateY(-2px);
+    }
+
+    /* Runes inférieures */
+    .rune-bottom {
+      margin-top: 44px; opacity: .35;
+      font-family: 'Cinzel', serif; font-size: 22px;
+      color: var(--gold3); letter-spacing: 18px;
+    }
+
+    /* ── Footer minimal ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 18px;
+      font-size: 13px; color: var(--muted);
+      border-top: 1px solid rgba(201,168,76,.1);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">
+    <div class="logo-icon">⚔️</div>
+    <div>
+      <div class="logo-text">Valhall'Ark</div>
+      <div class="logo-sub">ARK Survival Ascended</div>
+    </div>
+  </a>
+  <a href="/" class="nav-home">← Retour au camp</a>
+</nav>
+
+<div class="wrap">
+  <div class="notfound">
+
+    <div class="rune-row">
+      <div class="rune-line"></div>
+      <span class="rune-sym">ᚢ ᚦ ᚱ</span>
+      <div class="rune-line"></div>
+    </div>
+
+    <div class="code-404">404</div>
+
+    <div class="rune-divider">
+      <div class="rune-line"></div>
+      <span>ᛟ ᚹ ᛉ</span>
+      <div class="rune-line"></div>
+    </div>
+
+    <div class="msg-main">Tu t'es perdu, survivant…<br>Cette terre n'existe pas encore.</div>
+    <div class="msg-sub">Les dieux t'ont égaré sur un chemin inconnu.</div>
+
+    <a href="/" class="btn-home">⚔️ &nbsp;Retourner au camp</a>
+
+    <div class="rune-bottom">ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ</div>
+
+  </div>
+</div>
+
+<footer>Valhall'Ark &copy; 2025 — ARK Survival Ascended</footer>
+
+</body>
+</html>
