@@ -77,8 +77,8 @@
         -webkit-backdrop-filter: blur(12px);
         z-index: 149; padding: 8px 16px 16px;
       }
-      .nav-links.open { display: flex; }
-      .nav-link { font-size: 16px; padding: 14px 12px; border-bottom: 1px solid rgba(201,168,76,.08); letter-spacing: 1px; }
-      .nav-link:last-of-type { border-bottom: none; }
-      .nav-join { margin-top: 10px; text-align: center; padding: 14px; }
+      .nav-links.open { display: grid; grid-template-columns: 1fr 1fr; }
+      .nav-link { font-size: 15px; padding: 14px 12px; border-bottom: 1px solid rgba(201,168,76,.08); letter-spacing: 1px; text-align: center; }
+      .nav-link:nth-child(odd)  { border-right: 1px solid rgba(201,168,76,.08); }
+      .nav-join { grid-column: 1 / -1; margin-top: 8px; text-align: center; padding: 14px; }
     }

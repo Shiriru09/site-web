@@ -13,9 +13,6 @@
       .btn-main, .btn-ghost { width:100%; max-width:320px; justify-content:center; }
 
       nav { padding:12px 16px; }
-      .nav-links { gap:4px; }
-      .nav-link { font-size:14px; padding:8px 12px; letter-spacing:0.5px; }
-      .nav-join { font-size:14px; padding:10px 18px; }
 
       .stats-grid { grid-template-columns:1fr; }
       .stat-box { padding:22px; }
@@ -37,6 +34,15 @@
       .lightbox-info  { font-size:13px; padding:0 16px; }
 
       .section { margin:0 0 40px; }
+    }
+
+    /* ── Nav mobile : grille 2 colonnes ≤ 700px ─── */
+    @media(max-width:700px) {
+      .nav-links.open { display: grid; grid-template-columns: 1fr 1fr; }
+      .nav-link { font-size:15px; padding:14px 12px; text-align:center; letter-spacing:1px;
+                  border-bottom:1px solid rgba(201,168,76,.08); }
+      .nav-link:nth-child(odd)  { border-right:1px solid rgba(201,168,76,.08); }
+      .nav-join { grid-column:1 / -1; padding:14px; text-align:center; margin-top:8px; }
     }
 
     /* ── Tablette ≤ 900px ────────────────────────── */
