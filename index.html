@@ -178,24 +178,77 @@
     </div>
 
     <!-- Plugins exclusifs -->
-    <div class="plugin-label">🔌 Plugins exclusifs</div>
+    <!-- Plugins exclusifs -->
+    <div class="plugin-label">&#x1F50C; Plugins exclusifs</div>
     <div class="plugins-grid">
+
+      <!-- ArkShop Ascended -->
       <div class="plugin-card featured">
-        <div class="plugin-head"><span class="plugin-icon">🛒</span><div><div class="plugin-name">ArkShop Ascended</div><div class="plugin-sub">Interface boutique joueur</div></div><span class="plugin-badge">Exclusif</span></div>
-        <p class="plugin-desc">Interface utilisateur complète permettant aux joueurs d'acheter, vendre et gérer leurs ressources via la monnaie personnalisée du serveur.</p>
+        <div class="plugin-head"><span class="plugin-icon">&#x1F6D2;</span><div><div class="plugin-name">ArkShop Ascended</div><div class="plugin-sub">Interface boutique joueur</div></div><span class="plugin-badge">Exclusif</span></div>
+        <p class="plugin-desc">Interface utilisateur compl&#xE8;te permettant aux joueurs d&apos;acheter, vendre et g&#xE9;rer leurs ressources via la monnaie personnalis&#xE9;e du serveur.</p>
+        <button class="plugin-acc-btn" onclick="togglePlugin(this)">En savoir plus &#x25BC;</button>
+        <div class="plugin-acc-body">
+          <ul class="plugin-details">
+            <li>Achat d&apos;articles, kits, &#xE9;change et vente d&apos;objets en jeu</li>
+            <li>Affichage des points en temps r&#xE9;el</li>
+            <li>R&#xE9;clamation automatique des votes</li>
+            <li>Barre de recherche int&#xE9;gr&#xE9;e, boutons personnalisables</li>
+            <li>Liaison de compte obligatoire via <strong>/lier-compte</strong> sur Discord (Bot&nbsp;: Asgard Finance)</li>
+            <li>Gestion des runes directement en jeu (5&nbsp;000 ou 10&nbsp;000 runes)</li>
+            <li>Avantage donateurs&nbsp;: r&#xE9;ductions rembours&#xE9;es automatiquement</li>
+          </ul>
+        </div>
       </div>
+
+      <!-- Crowbar -->
       <div class="plugin-card featured">
-        <div class="plugin-head"><span class="plugin-icon">🔧</span><div><div class="plugin-name">Crowbar</div><div class="plugin-sub">Gestion &amp; stabilité serveur</div></div><span class="plugin-badge">Exclusif</span></div>
-        <p class="plugin-desc">Outil ultra complet conçu pour améliorer la gestion et la stabilité du serveur. Contrôle avancé pour les admins et une expérience fluide pour les joueurs.</p>
+        <div class="plugin-head"><span class="plugin-icon">&#x1F527;</span><div><div class="plugin-name">Crowbar</div><div class="plugin-sub">Gestion &amp; stabilit&#xE9; serveur</div></div><span class="plugin-badge">Exclusif</span></div>
+        <p class="plugin-desc">Outil ultra complet con&#xE7;u pour am&#xE9;liorer la gestion et la stabilit&#xE9; du serveur.</p>
+        <button class="plugin-acc-btn" onclick="togglePlugin(this)">En savoir plus &#x25BC;</button>
+        <div class="plugin-acc-body">
+          <ul class="plugin-details">
+            <li>Fen&#xEA;tre de commandes RCON int&#xE9;gr&#xE9;e</li>
+            <li>Sauvegarde + red&#xE9;marrage automatique en cas de crash</li>
+            <li>Sauvegarde s&#xE9;curis&#xE9;e des personnages lors des transferts</li>
+            <li>Permet de d&#xE9;passer la limite de 28 plugins serveur</li>
+            <li>Am&#xE9;liore la stabilit&#xE9; globale et simplifie la gestion admin</li>
+          </ul>
+        </div>
       </div>
+
+      <!-- LethalQuest -->
       <div class="plugin-card featured">
-        <div class="plugin-head"><span class="plugin-icon">⚔️</span><div><div class="plugin-name">LethalQuest</div><div class="plugin-sub">Aventure RPG &amp; quêtes</div></div><span class="plugin-badge">Exclusif</span></div>
-        <p class="plugin-desc">Transforme le serveur en une véritable aventure RPG avec des quêtes personnalisées, un suivi avancé des statistiques et des récompenses uniques.</p>
+        <div class="plugin-head"><span class="plugin-icon">&#x2694;&#xFE0F;</span><div><div class="plugin-name">LethalQuest</div><div class="plugin-sub">Aventure RPG &amp; qu&#xEA;tes</div></div><span class="plugin-badge">Exclusif</span></div>
+        <p class="plugin-desc">Transforme le serveur en une v&#xE9;ritable aventure RPG avec qu&#xEA;tes personnalis&#xE9;es et suivi de statistiques.</p>
+        <button class="plugin-acc-btn" onclick="togglePlugin(this)">En savoir plus &#x25BC;</button>
+        <div class="plugin-acc-body">
+          <ul class="plugin-details">
+            <li>Qu&#xEA;tes quotidiennes, hebdomadaires et cha&#xEE;nes de qu&#xEA;tes</li>
+            <li>Suivi&nbsp;: kills, morts, K/D, dinos tu&#xE9;s, boss, temps de jeu, d&#xE9;g&#xE2;ts PvP</li>
+            <li>Jusqu&apos;&#xE0; 950 stats personnalis&#xE9;es</li>
+            <li>R&#xE9;compenses&nbsp;: objets, dinos, XP, points ArkShop, engrammes</li>
+            <li>Bot Discord pour classement et stats joueurs</li>
+            <li>Gestion des permissions (Default, VIP, Admin)</li>
+          </ul>
+        </div>
       </div>
+
+      <!-- LethalServeurEvent -->
       <div class="plugin-card featured">
-        <div class="plugin-head"><span class="plugin-icon">👑</span><div><div class="plugin-name">LethalServeurEvent</div><div class="plugin-sub">Événements boss dynamiques</div></div><span class="plugin-badge">Exclusif</span></div>
-        <p class="plugin-desc">Crée des événements boss dynamiques directement sur le serveur avec un contrôle total sur la difficulté, les récompenses et le déroulement des combats.</p>
+        <div class="plugin-head"><span class="plugin-icon">&#x1F451;</span><div><div class="plugin-name">LethalServeurEvent</div><div class="plugin-sub">&#xC9;v&#xE9;nements boss dynamiques</div></div><span class="plugin-badge">Exclusif</span></div>
+        <p class="plugin-desc">Cr&#xE9;e des &#xE9;v&#xE9;nements boss dynamiques avec contr&#xF4;le total sur la difficult&#xE9; et les r&#xE9;compenses.</p>
+        <button class="plugin-acc-btn" onclick="togglePlugin(this)">En savoir plus &#x25BC;</button>
+        <div class="plugin-acc-body">
+          <ul class="plugin-details">
+            <li>Niveau et sant&#xE9; du boss personnalisables</li>
+            <li>Ar&#xE8;ne en monde ouvert avec anti-kiting</li>
+            <li>Messages Discord automatiques d&#xE9;but/fin d&apos;&#xE9;v&#xE9;nement</li>
+            <li>R&#xE9;compenses par joueur&nbsp;: objets, XP, points boutique</li>
+            <li>Minuteur avant d&#xE9;but et recharge apr&#xE8;s mort du boss</li>
+          </ul>
+        </div>
       </div>
+
     </div>
 
     <!-- Onglets mods -->

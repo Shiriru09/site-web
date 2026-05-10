@@ -91,3 +91,29 @@
     .mod-card.mod-special .mod-name { color:var(--gold); }
     .mod-icon { font-size:26px; }
     .mod-name { font-family:'Cinzel',serif; font-size:15px; letter-spacing:.5px; color:#c8bfa8; line-height:1.4; font-weight:600; }
+
+    /* ─── Plugin accordion ───────────────────────────── */
+    .plugin-acc-btn {
+      display:inline-flex; align-items:center; gap:6px; margin-top:14px;
+      font-size:13px; font-family:'Cinzel',serif; font-weight:600; letter-spacing:.8px;
+      color:var(--gold); background:transparent; border:1px solid rgba(201,168,76,.3);
+      border-radius:3px; padding:6px 14px; cursor:pointer; transition:all .2s;
+      width:100%;  justify-content:center;
+    }
+    .plugin-acc-btn:hover { background:rgba(201,168,76,.1); border-color:var(--gold); }
+    .plugin-acc-btn.open  { color:var(--muted); border-color:rgba(201,168,76,.15); }
+    .plugin-acc-body {
+      max-height:0; overflow:hidden;
+      transition:max-height .38s ease, opacity .28s ease;
+      opacity:0;
+    }
+    .plugin-acc-body.open { max-height:600px; opacity:1; }
+    .plugin-details { list-style:none; padding:14px 0 4px; display:flex; flex-direction:column; gap:0; }
+    .plugin-details li {
+      font-size:15px; color:#a09880; line-height:1.6;
+      padding:7px 0; border-bottom:1px solid rgba(255,255,255,.05);
+      padding-left:16px; position:relative;
+    }
+    .plugin-details li:last-child { border-bottom:none; }
+    .plugin-details li::before { content:'▸'; position:absolute; left:0; color:var(--gold); }
+    .plugin-details li strong { color:var(--gold2); font-family:'Cinzel',serif; font-size:13px; }

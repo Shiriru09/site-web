@@ -1,4 +1,13 @@
-﻿  /* ── Tabs mods ─────────────────────────────────── */
+﻿  /* ── Plugin accordion ──────────────────────────── */
+  function togglePlugin(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    btn.textContent = isOpen ? 'En savoir plus ▼' : 'Réduire ▲';
+  }
+
+  /* ── Tabs mods ─────────────────────────────────── */
   function switchTab(btn, tabId) {
     const isActive = btn.classList.contains('active');
     document.querySelectorAll('.mods-tab').forEach(t => t.classList.remove('active'));
