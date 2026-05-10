@@ -7,22 +7,22 @@
     .rates-card { border-top:2px solid #2ea043; }
     .features-card { border-top:2px solid #388bfd; }
     .rates-title {
-      font-family:'Cinzel',serif; font-size:15px; letter-spacing:1.5px; font-weight:700;
+      font-family:'Cinzel',serif; font-size:22px; letter-spacing:1.5px; font-weight:700;
       margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,.08);
     }
     .rates-card .rates-title  { color:#2ea043; }
     .features-card .rates-title { color:#388bfd; }
     .rate-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.05); gap:12px; }
     .rate-row:last-of-type { border-bottom:none; }
-    .rate-label { font-size:15px; color:#c9d1d9; font-weight:500 !important; }
-    .rate-val { font-family:'Cinzel',serif; font-size:15px; font-weight:700; color:#00bfff; white-space:nowrap; }
+    .rate-label { font-size:18px; color:#c9d1d9; font-weight:500 !important; }
+    .rate-val { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:#00bfff; white-space:nowrap; }
     .rate-row.highlight .rate-val { color:#3fb950; }
     .rates-note { margin-top:18px; font-size:14px; color:#6e7681; font-style:italic; text-align:center; line-height:1.6; border-top:1px solid rgba(255,255,255,.06); padding-top:14px; }
     .feature-item { display:flex; align-items:flex-start; gap:14px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.05); }
     .feature-item:last-child { border-bottom:none; }
     .feat-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
-    .feature-item strong { font-family:'Cinzel',serif; font-size:15px; letter-spacing:.5px; color:#e6edf3; display:block; margin-bottom:2px; }
-    .feature-item span { font-size:14px; color:#6e7681; font-weight:400; }
+    .feature-item strong { font-family:'Cinzel',serif; font-size:17px; letter-spacing:.5px; color:#e6edf3; display:block; margin-bottom:2px; }
+    .feature-item span { font-size:17px; color:#6e7681; font-weight:400; }
 
 
     /* ─── Mods tabs ──────────────────────────────────────── */
