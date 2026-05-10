@@ -1553,9 +1553,9 @@
     const slider = document.getElementById('sound-slider');
     if (!btn || !audio) return;
 
-    let lastVol = 0.5;
-    audio.volume = 0.5;
-    if (slider) slider.value = 0.5;
+    let lastVol = 0.3;
+    audio.volume = 0.3;
+    if (slider) slider.value = 0.3;
     let started = false;
 
     function updateIcon() {
@@ -1601,7 +1601,7 @@
         btn.textContent = '🔇';
         btn.classList.remove('playing');
       } else {
-        audio.volume = lastVol || 0.5;
+        audio.volume = lastVol || 0.3;
         if (slider) slider.value = audio.volume;
         updateIcon();
         try {
