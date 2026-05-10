@@ -28,13 +28,13 @@
     .plugin-card:hover { border-color:rgba(201,168,76,.35); background:var(--bg3); transform:translateY(-2px); }
     .plugin-card.featured { border-left:3px solid var(--gold3); }
     .plugin-card.featured:hover { border-left-color:var(--gold); }
-    .plugin-head { display:flex; align-items:flex-start; gap:14px; margin-bottom:14px; justify-content:space-between; }
-    .plugin-head > div { flex:1; min-width:0; }
+    .plugin-head { display:flex; align-items:flex-start; gap:10px; margin-bottom:14px; justify-content:space-between; overflow:visible; }
+    .plugin-head > div { flex:1; min-width:0; overflow:hidden; }
     .plugin-icon { font-size:26px; flex-shrink:0; margin-top:2px; }
-    .plugin-name { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:#fff; letter-spacing:.5px; line-height:1.2; }
-    .plugin-sub  { font-size:16px; color:var(--muted); margin-top:4px; font-style:italic; }
+    .plugin-name { font-family:'Cinzel',serif; font-size:16px; font-weight:700; color:#fff; letter-spacing:.5px; line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .plugin-sub  { font-size:14px; color:var(--muted); margin-top:4px; font-style:italic; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
     .plugin-badge {
-      flex-shrink:0; align-self:flex-start; margin-top:0;
+      flex-shrink:0; align-self:flex-start; margin-top:0; white-space:nowrap;
       font-family:'Cinzel',serif; font-size:11px; letter-spacing:1.5px;
       padding:3px 10px; border-radius:3px;
       background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.3); color:var(--gold);
