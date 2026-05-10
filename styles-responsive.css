@@ -36,15 +36,6 @@
       .section { margin:0 0 40px; }
     }
 
-    /* ── Nav mobile : grille 2 colonnes ≤ 700px ─── */
-    @media(max-width:700px) {
-      .nav-links.open { display: grid; grid-template-columns: 1fr 1fr; }
-      .nav-link { font-size:15px; padding:14px 12px; text-align:center; letter-spacing:1px;
-                  border-bottom:1px solid rgba(201,168,76,.08); }
-      .nav-link:nth-child(odd)  { border-right:1px solid rgba(201,168,76,.08); }
-      .nav-join { grid-column:1 / -1; padding:14px; text-align:center; margin-top:8px; }
-    }
-
     /* ── Tablette ≤ 900px ────────────────────────── */
     @media(max-width:900px) and (min-width:641px) {
       nav { padding:14px 32px; }

@@ -66,19 +66,40 @@
     .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     @media(max-width:700px) {
-      .nav-toggle { display: flex; }
+      /* Affiche le bouton hamburger, cache les liens par défaut */
+      .nav-toggle { display: flex !important; }
       .nav-links {
-        display: none;
+        display: none !important;
         position: fixed; top: 70px; left: 0; right: 0;
-        flex-direction: column; align-items: stretch; gap: 0;
-        background: rgba(8,10,15,0.97);
-        border-bottom: 1px solid rgba(201,168,76,.2);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        z-index: 149; padding: 8px 16px 16px;
+        background: rgba(8,10,15,0.98);
+        border-bottom: 1px solid rgba(201,168,76,.25);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        z-index: 149;
+        padding: 8px 16px 20px;
       }
-      .nav-links.open { display: grid; grid-template-columns: 1fr 1fr; }
-      .nav-link { font-size: 15px; padding: 14px 12px; border-bottom: 1px solid rgba(201,168,76,.08); letter-spacing: 1px; text-align: center; }
-      .nav-link:nth-child(odd)  { border-right: 1px solid rgba(201,168,76,.08); }
-      .nav-join { grid-column: 1 / -1; margin-top: 8px; text-align: center; padding: 14px; }
+      /* Menu ouvert : grille 2 colonnes */
+      .nav-links.open {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+      .nav-link {
+        font-family: 'Cinzel', serif;
+        font-size: 15px; font-weight: 600;
+        padding: 16px 12px; text-align: center; letter-spacing: 1px;
+        color: #c8bfa8; text-decoration: none;
+        border-bottom: 1px solid rgba(201,168,76,.1);
+        transition: color .2s, background .2s;
+      }
+      .nav-link:nth-child(odd)  { border-right: 1px solid rgba(201,168,76,.1); }
+      .nav-link:hover { color: var(--gold); background: rgba(201,168,76,.05); }
+      /* Rejoindre : pleine largeur tout en bas */
+      .nav-join {
+        grid-column: 1 / -1;
+        margin-top: 10px;
+        text-align: center;
+        padding: 14px;
+        font-size: 15px;
+      }
     }
