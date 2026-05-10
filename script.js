@@ -119,10 +119,12 @@
     document.getElementById('lightbox-img').src = '';
   }
 
-  /* Fermeture sur clic du fond sombre ou de l'image */
+  /* Fermeture : bouton ✕, fond sombre, image */
   (function() {
-    const lb  = document.getElementById('lightbox');
-    const img = document.getElementById('lightbox-img');
+    const lb    = document.getElementById('lightbox');
+    const img   = document.getElementById('lightbox-img');
+    const close = lb.querySelector('.lightbox-close');
+    close.addEventListener('click', () => closeLightbox());
     lb.addEventListener('click',  e => { if (e.target === lb || e.target === img) closeLightbox(); });
     img.addEventListener('click', () => closeLightbox());
   })();
@@ -173,4 +175,4 @@
     }
   }
   fetchDiscordStats();
-  setInterval(fetchDiscordStats, 2 * 60 * 1000);
+  setInterval(fetchDiscordStats, 24 * 60 * 60 * 1000);
