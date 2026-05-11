@@ -60,7 +60,14 @@
     .hero-badges { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:36px; }
     .hero-badge {
       font-family:'Cinzel',serif; font-size:16px; font-weight:700; letter-spacing:1px;
-      padding:12px 20px; border-radius:5px;
-      background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.3);
-      color:#e8dfc0;
+      padding:12px 22px; border-radius:20px;
+      background:#0d1117; border:1px solid rgba(201,168,76,.35);
+      color:#fff;
+      box-shadow:0 4px 12px rgba(0,0,0,.4);
+      transition:all .3s; cursor:default;
+    }
+    .hero-badge:hover {
+      background:#111827;
+      box-shadow:0 0 14px rgba(201,168,76,.5), 0 4px 12px rgba(0,0,0,.4);
+      transform:translateY(-2px);
     }
