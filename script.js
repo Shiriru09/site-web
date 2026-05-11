@@ -2,22 +2,9 @@
   function togglePlugin(btn) {
     const body = btn.nextElementSibling;
     const isOpen = body.classList.contains('open');
-
-    // Ferme tous les accordéons sans exception
-    document.querySelectorAll('.plugin-acc-body').forEach(function(b) {
-      b.classList.remove('open');
-    });
-    document.querySelectorAll('.plugin-acc-btn').forEach(function(b) {
-      b.classList.remove('open');
-      b.textContent = 'En savoir plus ▼';
-    });
-
-    // Si l'accordéon cliqué était fermé, l'ouvrir
-    if (!isOpen) {
-      body.classList.add('open');
-      btn.classList.add('open');
-      btn.textContent = 'Réduire ▲';
-    }
+    body.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    btn.textContent = isOpen ? 'En savoir plus ▼' : 'Réduire ▲';
   }
 
   /* ── Tabs mods ─────────────────────────────────── */
