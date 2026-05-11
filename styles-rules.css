@@ -19,34 +19,60 @@
     /* ─── Règlement accordion ────────────────────────────── */
     .pve-banner {
       background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.4);
-      border-left:4px solid #ef4444; border-radius:4px;
+      border-left:4px solid #ef4444; border-radius:10px;
       padding:18px 24px; font-size:18px; font-weight:700; color:rgba(255,120,120,.95);
-      margin-bottom:20px; font-family:'Cinzel',serif; letter-spacing:.5px;
+      margin-bottom:16px; font-family:'Cinzel',serif; letter-spacing:.5px;
     }
-    .accord-list { display:grid; gap:8px; }
-    .accord-item { background:var(--bg2); border:1px solid rgba(201,168,76,.1); border-radius:6px; overflow:hidden; }
+    .accord-list { display:grid; gap:10px; }
+
+    /* Couleur accent par catégorie */
+    .accord-item:nth-child(1) { --ac:#00bfff; --ac-s:rgba(0,191,255,.18); }
+    .accord-item:nth-child(2) { --ac:#ff8c00; --ac-s:rgba(255,140,0,.18); }
+    .accord-item:nth-child(3) { --ac:#00c853; --ac-s:rgba(0,200,83,.18); }
+    .accord-item:nth-child(4) { --ac:#4fc3f7; --ac-s:rgba(79,195,247,.18); }
+    .accord-item:nth-child(5) { --ac:#C9A84C; --ac-s:rgba(201,168,76,.18); }
+    .accord-item:nth-child(6) { --ac:#9c27b0; --ac-s:rgba(156,39,176,.18); }
+    .accord-item:nth-child(7) { --ac:#f44336; --ac-s:rgba(244,67,54,.18); }
+    .accord-item:nth-child(8) { --ac:#b71c1c; --ac-s:rgba(183,28,28,.18); }
+    .accord-item:nth-child(9) { --ac:#e91e63; --ac-s:rgba(233,30,99,.18); }
+
+    .accord-item {
+      background:#0d1117;
+      border:1px solid rgba(255,255,255,.08);
+      border-left:4px solid var(--ac,#C9A84C);
+      border-radius:10px; overflow:hidden;
+      box-shadow:0 4px 18px rgba(0,0,0,.45);
+      transition:box-shadow .2s;
+    }
     .accord-head {
       width:100%; display:flex; align-items:center; gap:12px;
-      background:transparent; border:none; padding:16px 20px;
+      background:transparent; border:none; padding:18px 22px;
       cursor:pointer; text-align:left; transition:background .2s;
     }
-    .accord-head:hover { background:rgba(201,168,76,.06); }
+    .accord-head:hover {
+      background:var(--ac-s,rgba(201,168,76,.08));
+    }
     .accord-icon { font-size:18px; flex-shrink:0; }
-    .accord-title { font-family:'Cinzel',serif; font-size:14px; font-weight:600; color:#fff; flex:1; letter-spacing:.8px; }
-    .accord-arrow { font-size:11px; color:var(--gold3); transition:transform .25s; }
+    .accord-title { font-family:'Cinzel',serif; font-size:17px; font-weight:700; color:#fff; flex:1; letter-spacing:.8px; }
+    .accord-arrow { font-size:13px; color:var(--ac,#C9A84C); transition:transform .3s; }
     .accord-head.active .accord-arrow { transform:rotate(180deg); }
     .accord-body {
-      max-height:0; overflow:hidden; transition:max-height .35s ease;
-      border-top:0 solid rgba(201,168,76,.1);
+      max-height:0; overflow:hidden;
+      transition:max-height .38s ease;
+      background:#0a0f16;
+      border-top:0 solid rgba(255,255,255,.07);
     }
-    .accord-body.open { max-height:600px; border-top-width:1px; }
-    .rule-ul { list-style:none; padding:18px 24px 20px 24px; display:grid; gap:12px; }
-    .rule-ul li { font-size:17px; color:#c8bfa8; line-height:1.75; padding-left:20px; position:relative; font-weight:400; }
-    .rule-ul li::before { content:'›'; position:absolute; left:0; color:var(--gold3); font-size:20px; line-height:1.4; }
+    .accord-body.open { max-height:800px; border-top-width:1px; }
+    .rule-ul {
+      list-style:none; padding:18px 24px 22px 24px; display:grid; gap:12px;
+      border-left:2px solid var(--ac,#C9A84C); margin:0 20px 0 22px;
+    }
+    .rule-ul li { font-size:16px; color:#c8bfa8; line-height:1.75; padding-left:20px; position:relative; font-weight:400; }
+    .rule-ul li::before { content:'›'; position:absolute; left:0; color:var(--ac,#C9A84C); font-size:20px; line-height:1.4; }
     .rule-ul li.rule-warn { color:rgba(239,68,68,.9); }
     .rule-ul li.rule-warn::before { color:rgba(239,68,68,.7); }
-    .rule-example { font-size:15px; color:var(--gold3); font-style:italic; }
-    .accord-title { font-family:'Cinzel',serif; font-size:16px; font-weight:700; color:#fff; flex:1; letter-spacing:.8px; }    .sanction-scale { display:grid; gap:8px; padding:0 20px 18px; }
+    .rule-example { font-size:15px; color:var(--ac,#C9A84C); font-style:italic; }
+    .sanction-scale { display:grid; gap:8px; padding:0 20px 18px; }
     .sanction { padding:10px 16px; border-radius:4px; font-family:'Cinzel',serif; font-size:15px; letter-spacing:.5px; display:flex; justify-content:space-between; align-items:center; }
     .sanction span { font-size:14px; opacity:.9; font-family:'Crimson Pro',serif; font-style:italic; }
     .sanction.warn { background:rgba(234,179,8,.08); border:1px solid rgba(234,179,8,.25); color:rgba(234,179,8,.85); }
