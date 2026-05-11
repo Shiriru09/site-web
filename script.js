@@ -1,20 +1,18 @@
 ﻿  /* ── Plugin accordion ──────────────────────────── */
   function togglePlugin(btn) {
-    const card = btn.closest('.plugin-card');
-    const body = card.querySelector('.plugin-acc-body');
+    const body = btn.nextElementSibling;
     const isOpen = body.classList.contains('open');
 
-    // Ferme tous les autres accordéons ouverts
-    document.querySelectorAll('.plugin-acc-body.open').forEach(function(b) {
+    // Ferme tous les accordéons sans exception
+    document.querySelectorAll('.plugin-acc-body').forEach(function(b) {
       b.classList.remove('open');
-      var sibBtn = b.previousElementSibling;
-      if (sibBtn && sibBtn.classList.contains('plugin-acc-btn')) {
-        sibBtn.classList.remove('open');
-        sibBtn.textContent = 'En savoir plus ▼';
-      }
+    });
+    document.querySelectorAll('.plugin-acc-btn').forEach(function(b) {
+      b.classList.remove('open');
+      b.textContent = 'En savoir plus ▼';
     });
 
-    // Ouvre ou referme la carte cliquée
+    // Si l'accordéon cliqué était fermé, l'ouvrir
     if (!isOpen) {
       body.classList.add('open');
       btn.classList.add('open');
