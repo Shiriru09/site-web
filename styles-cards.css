@@ -26,20 +26,26 @@
 
 
     /* ─── Mods tabs ──────────────────────────────────────── */
-    .mods-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+    .mods-tabs { display: flex; gap: 12px; margin-bottom: 20px; }
     .mods-tab {
-      font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; letter-spacing: 1px;
-      padding: 14px 28px; border-radius: 6px; cursor: pointer;
-      border: 1px solid rgba(201,168,76,.3); background: rgba(201,168,76,.05);
-      color: #c8bfa8; transition: all .2s;
+      font-family: 'Cinzel', serif; font-size: 15px; font-weight: 700; letter-spacing: 1.2px;
+      padding: 12px 28px; border-radius: 25px; cursor: pointer;
+      border: 1px solid rgba(201,168,76,.4); background: #0d1117;
+      color: #fff; transition: all .25s;
     }
-    .mods-tab.active { background: rgba(201,168,76,.12); border-color: var(--gold); color: var(--gold); }
-    .mods-tab:hover:not(.active) { border-color: rgba(201,168,76,.4); color: var(--text); }
+    .mods-tab.active {
+      background: #C9A84C; border-color: #C9A84C; color: #05080f;
+      box-shadow: 0 0 15px rgba(201,168,76,.6);
+    }
+    .mods-tab:hover:not(.active) {
+      background: rgba(201,168,76,.15); border-color: #C9A84C; color: #C9A84C;
+    }
     .mods-tab-content { display: block; }
     .mods-placeholder {
-      background: rgba(201,168,76,.05); border: 1px dashed rgba(201,168,76,.3);
-      border-radius: 8px; padding: 48px; text-align: center;
-      color: #c8bfa8; font-size: 20px; font-weight: 500; font-style: italic; margin-top: 4px;
+      background: rgba(10,12,20,.85); border: 1px dashed rgba(201,168,76,.5);
+      border-radius: 10px; padding: 48px; text-align: center;
+      color: #C9A84C; font-size: 16px; font-weight: 700; font-style: italic; margin-top: 4px;
+      box-shadow: 0 0 18px rgba(201,168,76,.15);
     }
     .mods-tab-content.hidden { display: none; }
     .mods-starter-note {
