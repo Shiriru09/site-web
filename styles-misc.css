@@ -156,3 +156,28 @@
     #back-top.visible { opacity:1; visibility:visible; transform:translateY(0); }
     #back-top:hover { background:rgba(201,168,76,.25); box-shadow:0 0 20px rgba(201,168,76,.35); color:#fff; }
   
+
+    /* ─── Map accordion ──────────────────────────────── */
+    .map-toggle {
+      width:100%; background:transparent;
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:4px; color:var(--mc);
+      font-family:'Cinzel',serif; font-size:13px; letter-spacing:1px;
+      padding:8px 14px; cursor:pointer; margin-top:14px;
+      transition:all .2s; display:flex;
+      justify-content:space-between; align-items:center;
+    }
+    .map-toggle:hover { background:rgba(255,255,255,.04); border-color:var(--mc); }
+    .map-toggle.open  { border-color:var(--mc); background:rgba(255,255,255,.05); }
+    .map-toggle-arrow { transition:transform .25s; display:inline-block; }
+    .map-toggle.open .map-toggle-arrow { transform:rotate(180deg); }
+    .map-detail { max-height:0; overflow:hidden; transition:max-height .38s ease; }
+    .map-detail.open { max-height:600px; }
+    .map-detail-inner {
+      padding:14px 4px 4px;
+      display:grid; gap:9px;
+      border-top:1px solid rgba(255,255,255,0.07);
+      margin-top:14px;
+    }
+    .map-detail-item { font-size:15px; color:#e0e0e0; line-height:1.65; }
+    .map-detail-item strong { color:var(--mc); font-weight:600; }

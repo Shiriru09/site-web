@@ -384,6 +384,15 @@
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">Une carte originale unique — point de départ recommandé pour les nouveaux survivants.</p>
+        <button class="map-toggle" onclick="toggleMapDetail(this)">En savoir plus <span class="map-toggle-arrow">▼</span></button>
+        <div class="map-detail">
+          <div class="map-detail-inner">
+            <div class="map-detail-item">🗺️ <strong>Rôle</strong> : Carte de départ recommandée pour les nouveaux survivants</div>
+            <div class="map-detail-item">⚔️ <strong>Boss</strong> : Alpha Rockwell, Manticore, Dragon</div>
+            <div class="map-detail-item">🦕 <strong>Dinos uniques</strong> : Aberrant creatures, Rock Drakes</div>
+            <div class="map-detail-item">🌍 <strong>Biomes</strong> : Zones volcaniques, forêts luxuriantes, déserts</div>
+          </div>
+        </div>
       </div>
 
       <div class="map-card" data-status="online" style="--mc:#e74c3c;--mc-s:rgba(231,76,60,.35)">
@@ -393,6 +402,15 @@
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">Survivez sur une Terre dévastée. Récupérez des éléments et affrontez les Titans.</p>
+        <button class="map-toggle" onclick="toggleMapDetail(this)">En savoir plus <span class="map-toggle-arrow">▼</span></button>
+        <div class="map-detail">
+          <div class="map-detail-inner">
+            <div class="map-detail-item">🗺️ <strong>Rôle</strong> : Carte avancée pour survivants expérimentés</div>
+            <div class="map-detail-item">⚔️ <strong>Boss</strong> : King Titan, Forest Titan, Desert Titan, Ice Titan</div>
+            <div class="map-detail-item">🦕 <strong>Dinos uniques</strong> : Gacha, Velonasaur, Managarmr, Snow Owl</div>
+            <div class="map-detail-item">🌍 <strong>Biomes</strong> : Wasteland, forêt corrompue, désert, toundra</div>
+          </div>
+        </div>
       </div>
 
       <div class="map-card" data-status="online" style="--mc:#95a5a6;--mc-s:rgba(149,165,166,.35)">
@@ -402,6 +420,15 @@
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">Explorez cette colonie perdue aux biomes variés et aux défis redoutables.</p>
+        <button class="map-toggle" onclick="toggleMapDetail(this)">En savoir plus <span class="map-toggle-arrow">▼</span></button>
+        <div class="map-detail">
+          <div class="map-detail-inner">
+            <div class="map-detail-item">🗺️ <strong>Rôle</strong> : Exploration de biomes variés avec défis redoutables</div>
+            <div class="map-detail-item">⚔️ <strong>Boss</strong> : Megapithecus, Broodmother, Dragon</div>
+            <div class="map-detail-item">🦕 <strong>Dinos uniques</strong> : Créatures rares et endémiques</div>
+            <div class="map-detail-item">🌍 <strong>Biomes</strong> : Forêts denses, zones glaciales, marécages</div>
+          </div>
+        </div>
       </div>
 
       <div class="map-card" data-status="online" style="--mc:#e67e22;--mc-s:rgba(230,126,34,.35)">
@@ -411,6 +438,15 @@
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">Carte dédiée à l'élevage et à la reproduction de dinos. Optimisée pour les éleveurs.</p>
+        <button class="map-toggle" onclick="toggleMapDetail(this)">En savoir plus <span class="map-toggle-arrow">▼</span></button>
+        <div class="map-detail">
+          <div class="map-detail-inner">
+            <div class="map-detail-item">🗺️ <strong>Rôle</strong> : Carte EXCLUSIVEMENT dédiée à l'élevage et la reproduction</div>
+            <div class="map-detail-item">⚠️ Loot, dinos sauvages et boss sont <strong>DÉSACTIVÉS</strong></div>
+            <div class="map-detail-item">🥚 <strong>Optimisée pour</strong> : Incubation, maturation et imprint</div>
+            <div class="map-detail-item">💡 <strong>Conseil</strong> : Utilisez cette map uniquement pour votre élevage</div>
+          </div>
+        </div>
       </div>
 
       <div class="map-card" data-status="online" style="--mc:#f1c40f;--mc-s:rgba(241,196,15,.35)">
@@ -420,15 +456,34 @@
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">La carte hybride Norse — vastes plaines, volcans actifs et donjons secrets.</p>
+        <button class="map-toggle" onclick="toggleMapDetail(this)">En savoir plus <span class="map-toggle-arrow">▼</span></button>
+        <div class="map-detail">
+          <div class="map-detail-inner">
+            <div class="map-detail-item">🗺️ <strong>Rôle</strong> : Carte hybride Norse avec vastes territoires</div>
+            <div class="map-detail-item">⚔️ <strong>Boss</strong> : Manticore, Dragon (combiné)</div>
+            <div class="map-detail-item">🦕 <strong>Dinos uniques</strong> : Griffon, Ice Wyvern</div>
+            <div class="map-detail-item">🌍 <strong>Biomes</strong> : Plaines vikings, volcans actifs, donjons secrets, côtes</div>
+          </div>
+        </div>
       </div>
 
       <div class="map-card" data-status="offline" style="--mc:#3498db;--mc-s:rgba(52,152,219,.35)">
         <div class="map-header">
           <div class="map-dot"></div>
-          <div class="map-name">Map Starter</div>
+          <div class="map-name">Map Starter / Event</div>
           <div class="map-badge offline">Hors ligne</div>
         </div>
         <p class="map-desc">Carte d'accueil pour débutants. Ressources abondantes et zones protégées.</p>
+        <button class="map-toggle" onclick="toggleMapDetail(this)">En savoir plus <span class="map-toggle-arrow">▼</span></button>
+        <div class="map-detail">
+          <div class="map-detail-inner">
+            <div class="map-detail-item">🗺️ <strong>Rôle</strong> : Carte dédiée aux événements et aux nouveaux joueurs</div>
+            <div class="map-detail-item">🎁 <strong>Disponible</strong> : Starter pack, Casino, Salle des Coffres, Shops NPC</div>
+            <div class="map-detail-item">🏆 Récompenses Top Serveur récupérables ici</div>
+            <div class="map-detail-item">🐾 Village Shiny et bien plus à explorer</div>
+            <div class="map-detail-item">⚠️ Loot et dinos classiques <strong>désactivés</strong> — map événementielle uniquement</div>
+          </div>
+        </div>
       </div>
 
       <div class="map-card" data-status="online" style="--mc:#e67e22;--mc-s:rgba(230,126,34,.35)">
@@ -438,6 +493,15 @@
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">L'île originale d'ARK — classique incontournable avec tous les boss légendaires.</p>
+        <button class="map-toggle" onclick="toggleMapDetail(this)">En savoir plus <span class="map-toggle-arrow">▼</span></button>
+        <div class="map-detail">
+          <div class="map-detail-inner">
+            <div class="map-detail-item">🗺️ <strong>Rôle</strong> : La carte originale d'ARK, classique incontournable</div>
+            <div class="map-detail-item">⚔️ <strong>Boss</strong> : Broodmother, Megapithecus, Dragon, Overseer</div>
+            <div class="map-detail-item">🦕 <strong>Dinos uniques</strong> : Toutes les créatures de base</div>
+            <div class="map-detail-item">🌍 <strong>Biomes</strong> : Jungle, plaines, montagnes enneigées, marécages</div>
+          </div>
+        </div>
       </div>
 
       <div class="map-card" data-status="online" style="--mc:#95a5a6;--mc-s:rgba(149,165,166,.35)">
@@ -447,6 +511,14 @@
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">La map change régulièrement — suivez le Discord pour savoir quelle carte est active.</p>
+        <button class="map-toggle" onclick="toggleMapDetail(this)">En savoir plus <span class="map-toggle-arrow">▼</span></button>
+        <div class="map-detail">
+          <div class="map-detail-inner">
+            <div class="map-detail-item">🗺️ <strong>Rôle</strong> : La map change régulièrement — suivez le Discord pour savoir quelle carte est active</div>
+            <div class="map-detail-item">🎲 <strong>Surprise</strong> : Nouvelle carte annoncée sur Discord</div>
+            <div class="map-detail-item">💡 <strong>Conseil</strong> : Restez connectés pour ne pas rater la prochaine rotation</div>
+          </div>
+        </div>
       </div>
 
       <div class="map-card" data-status="online" style="--mc:#2ecc71;--mc-s:rgba(46,204,113,.35)">
@@ -456,6 +528,15 @@
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">Forêts denses, plaines glaciales et le donjon d'Aberdeen — carte riche en biodiversité.</p>
+        <button class="map-toggle" onclick="toggleMapDetail(this)">En savoir plus <span class="map-toggle-arrow">▼</span></button>
+        <div class="map-detail">
+          <div class="map-detail-inner">
+            <div class="map-detail-item">🗺️ <strong>Rôle</strong> : Carte riche en biodiversité avec donjon unique</div>
+            <div class="map-detail-item">⚔️ <strong>Boss</strong> : Broodmother, Megapithecus, Dragon, Dinopithecus King</div>
+            <div class="map-detail-item">🦕 <strong>Dinos uniques</strong> : Deinonychus, Chalk Golem</div>
+            <div class="map-detail-item">🌍 <strong>Biomes</strong> : Forêts denses, plaines glaciales, donjon d'Aberdeen</div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -770,6 +851,6 @@
 
 </div><!-- /wrap -->
 
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>

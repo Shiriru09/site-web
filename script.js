@@ -313,3 +313,11 @@
       }
     });
   })();
+
+  /* ── Map accordion (indépendant par carte) ──────── */
+  function toggleMapDetail(btn) {
+    const detail = btn.nextElementSibling;
+    const isOpen = detail.classList.contains('open');
+    detail.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+  }
