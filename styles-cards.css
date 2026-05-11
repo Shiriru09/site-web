@@ -23,8 +23,10 @@
     .stats-card .rate-row { padding:6px 0; }
     .stats-card .rate-label { font-size:14px; }
     .stats-card .rate-val { font-size:14px; }
-    .stat-violet { color:#ce93d8 !important; }
-    .stat-gold   { color:#C9A84C !important; }
+    .stat-violet   { color:#ce93d8 !important; }
+    .stat-gold     { color:#C9A84C !important; }
+    .stat-cyan     { color:#00bfff !important; font-weight:700; }
+    .stat-official { color:#aaaaaa !important; font-style:italic; font-weight:400; font-family:'Crimson Pro',serif; font-size:15px; }
     .rates-title {
       font-family:'Cinzel',serif; font-size:22px; letter-spacing:1.5px; font-weight:700;
       margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,.08);
