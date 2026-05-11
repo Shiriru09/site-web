@@ -55,7 +55,7 @@
     .pc-orange { --pc:#f0883e; --pc-dim:rgba(240,136,62,.14); }
 
     .plugin-label { font-family:'Cinzel',serif; font-size:16px; font-weight:600; letter-spacing:2px; color:#c8bfa8; margin-bottom:14px; text-transform:uppercase; }
-    .plugins-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:16px; align-items:stretch; }
+    .plugins-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:16px; align-items:flex-start; }
     .plugin-card {
       background:#0d1117; border:1px solid var(--pc-dim,rgba(201,168,76,.15)); border-radius:10px;
       border-left:3px solid var(--pc,#C9A84C);
