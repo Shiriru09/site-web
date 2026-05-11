@@ -6,24 +6,17 @@
     @media(max-width:1100px){ .three-col .stats-card { grid-column:1/-1; } }
     @media(max-width:680px){ .three-col { grid-template-columns:1fr; } }
     @media(max-width:680px){ .three-col .stats-card { grid-column:auto; } }
-    .rates-card, .features-card, .stats-card {
+    .rates-card, .features-card, .joueur-card, .dino-card {
       background:#0d1117; border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:28px 30px;
     }
-    .rates-card { border-top:2px solid #2ea043; }
-    .features-card { border-top:2px solid #388bfd; }
-    .stats-card { border-top:2px solid #9c27b0; }
-    .stats-card .rates-title { color:#9c27b0; }
-    .stats-sub { margin-bottom:18px; }
-    .stats-sub:last-of-type { margin-bottom:0; }
-    .stats-sub-title {
-      font-family:'Cinzel',serif; font-size:14px; font-weight:700; color:#e8dfc0;
-      letter-spacing:.8px; margin-bottom:8px; padding-bottom:8px;
-      border-bottom:1px solid rgba(255,255,255,.07);
-    }
-    .stats-card .rate-row { padding:6px 0; }
-    .stats-card .rate-label { font-size:14px; }
-    .stats-card .rate-val { font-size:14px; }
-    .stat-violet   { color:#ce93d8 !important; }
+    .rates-card    { border-top:2px solid #2ea043; }
+    .features-card { border-top:2px solid #C9A84C; }
+    .joueur-card   { border-top:2px solid #00c853; }
+    .dino-card     { border-top:2px solid #ff8c00; }
+    .features-card .rates-title { color:#C9A84C; }
+    .joueur-card   .rates-title { color:#00c853; }
+    .dino-card     .rates-title { color:#ff8c00; }
+    .stat-green    { color:#00c853 !important; }
     .stat-gold     { color:#C9A84C !important; }
     .stat-cyan     { color:#00bfff !important; font-weight:700; }
     .stat-official { color:#aaaaaa !important; font-style:italic; font-weight:400; font-family:'Crimson Pro',serif; font-size:15px; }
