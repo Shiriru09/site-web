@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -415,21 +415,29 @@
     /* ─── Maps cluster ───────────────────────────────────── */
     .maps-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; }
     .mods-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px; }    .map-card {
-      background:rgba(10,12,20,0.85); border:1px solid rgba(201,168,76,.1); border-radius:8px;
-      padding:26px 28px; transition:all .2s;
+      background:#0d1117;
+      border:1px solid rgba(var(--mc-r),var(--mc-g),var(--mc-b),.2);
+      border-left:3px solid rgb(var(--mc-r),var(--mc-g),var(--mc-b));
+      border-radius:8px; padding:26px 28px; transition:all .2s;
+      box-shadow:0 4px 20px rgba(0,0,0,.5);
     }
-    .map-card:hover { border-color:rgba(201,168,76,.3); background:var(--bg3); transform:translateY(-2px); }
+    .map-card:hover {
+      border-color:rgba(var(--mc-r),var(--mc-g),var(--mc-b),.45);
+      border-left-color:rgb(var(--mc-r),var(--mc-g),var(--mc-b));
+      background:#111827; transform:translateY(-3px);
+      box-shadow:0 8px 32px rgba(var(--mc-r),var(--mc-g),var(--mc-b),.25),0 4px 20px rgba(0,0,0,.6);
+    }
     .map-card[data-status="offline"] { opacity:.65; }
     .map-header { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
-    .map-dot { width:13px; height:13px; border-radius:50%; flex-shrink:0; }
-    .map-name { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:#fff; flex:1; letter-spacing:.5px; }
+    .map-dot { width:13px; height:13px; border-radius:50%; flex-shrink:0; background:rgb(var(--mc-r),var(--mc-g),var(--mc-b)); }
+    .map-name { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:rgb(var(--mc-r),var(--mc-g),var(--mc-b)); flex:1; letter-spacing:.5px; }
     .map-badge {
       font-size:13px; letter-spacing:1.5px; font-family:'Cinzel',serif;
-      padding:3px 10px; border-radius:3px;
+      padding:3px 10px; border-radius:20px;
     }
-    .map-badge.online  { background:rgba(87,242,135,.1); color:rgba(87,242,135,.85); border:1px solid rgba(87,242,135,.2); }
+    .map-badge.online  { background:rgba(34,197,94,.15); color:rgba(34,197,94,.9); border:1px solid rgba(34,197,94,.3); }
     .map-badge.offline { background:rgba(239,68,68,.1);  color:rgba(239,68,68,.75);  border:1px solid rgba(239,68,68,.2); }
-    .map-desc { font-size:18px; color:#b0a88a; line-height:1.75; font-weight:400; }
+    .map-desc { font-size:18px; color:#e2e8f0; line-height:1.75; font-weight:400; }
 
     /* ─── Galerie ────────────────────────────────────────── */
     .galerie-tabs { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
@@ -756,81 +764,81 @@
     </div>
     <div class="maps-grid">
 
-      <div class="map-card" data-status="online">
+      <div class="map-card" data-status="online" style="--mc-r:168;--mc-g:85;--mc-b:247">
         <div class="map-header">
-          <div class="map-dot" style="background:#a855f7"></div>
+          <div class="map-dot"></div>
           <div class="map-name">Astreos</div>
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">Une carte originale unique — point de départ recommandé pour les nouveaux survivants.</p>
       </div>
 
-      <div class="map-card" data-status="online">
+      <div class="map-card" data-status="online" style="--mc-r:239;--mc-g:68;--mc-b:68">
         <div class="map-header">
-          <div class="map-dot" style="background:#ef4444"></div>
+          <div class="map-dot"></div>
           <div class="map-name">Extinction</div>
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">Survivez sur une Terre dévastée. Récupérez des éléments et affrontez les Titans.</p>
       </div>
 
-      <div class="map-card" data-status="online">
+      <div class="map-card" data-status="online" style="--mc-r:107;--mc-g:114;--mc-b:128">
         <div class="map-header">
-          <div class="map-dot" style="background:#6b7280"></div>
+          <div class="map-dot"></div>
           <div class="map-name">Lost Colony</div>
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">Explorez cette colonie perdue aux biomes variés et aux défis redoutables.</p>
       </div>
 
-      <div class="map-card" data-status="online">
+      <div class="map-card" data-status="online" style="--mc-r:249;--mc-g:115;--mc-b:22">
         <div class="map-header">
-          <div class="map-dot" style="background:#f97316"></div>
+          <div class="map-dot"></div>
           <div class="map-name">Map Repro</div>
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">Carte dédiée à l'élevage et à la reproduction de dinos. Optimisée pour les éleveurs.</p>
       </div>
 
-      <div class="map-card" data-status="online">
+      <div class="map-card" data-status="online" style="--mc-r:234;--mc-g:179;--mc-b:8">
         <div class="map-header">
-          <div class="map-dot" style="background:#eab308"></div>
+          <div class="map-dot"></div>
           <div class="map-name">Ragnarok</div>
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">La carte hybride Norse — vastes plaines, volcans actifs et donjons secrets.</p>
       </div>
 
-      <div class="map-card" data-status="offline">
+      <div class="map-card" data-status="offline" style="--mc-r:59;--mc-g:130;--mc-b:246">
         <div class="map-header">
-          <div class="map-dot" style="background:#3b82f6"></div>
+          <div class="map-dot"></div>
           <div class="map-name">Map Starter</div>
           <div class="map-badge offline">Hors ligne</div>
         </div>
         <p class="map-desc">Carte d'accueil pour débutants. Ressources abondantes et zones protégées.</p>
       </div>
 
-      <div class="map-card" data-status="online">
+      <div class="map-card" data-status="online" style="--mc-r:245;--mc-g:158;--mc-b:11">
         <div class="map-header">
-          <div class="map-dot" style="background:#f59e0b"></div>
+          <div class="map-dot"></div>
           <div class="map-name">The Island</div>
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">L'île originale d'ARK — classique incontournable avec tous les boss légendaires.</p>
       </div>
 
-      <div class="map-card" data-status="online">
+      <div class="map-card" data-status="online" style="--mc-r:156;--mc-g:163;--mc-b:175">
         <div class="map-header">
-          <div class="map-dot" style="background:#9ca3af"></div>
+          <div class="map-dot"></div>
           <div class="map-name">Map Tournante</div>
           <div class="map-badge online">En ligne</div>
         </div>
         <p class="map-desc">La map change régulièrement — suivez le Discord pour savoir quelle carte est active.</p>
       </div>
 
-      <div class="map-card" data-status="online">
+      <div class="map-card" data-status="online" style="--mc-r:34;--mc-g:197;--mc-b:94">
         <div class="map-header">
-          <div class="map-dot" style="background:#22c55e"></div>
+          <div class="map-dot"></div>
           <div class="map-name">Valguero</div>
           <div class="map-badge online">En ligne</div>
         </div>
