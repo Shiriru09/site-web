@@ -167,7 +167,7 @@
         data.maps.forEach(map => {
           document.querySelectorAll('.map-card').forEach(card => {
             const nameEl = card.querySelector('.map-name');
-            if (nameEl && nameEl.textContent.trim().toLowerCase() === map.name.toLowerCase()) {
+            if (nameEl && (nameEl.textContent.trim().toLowerCase().includes(map.name.toLowerCase()) || map.name.toLowerCase().includes(nameEl.textContent.trim().toLowerCase()))) {
               const badge = card.querySelector('.map-badge');
               if (map.online) {
                 card.dataset.status = 'online';
