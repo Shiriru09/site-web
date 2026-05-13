@@ -1,0 +1,94 @@
+/* ─── Rôles du Serveur ───────────────────────────────── */
+
+.roles-category-title {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold2);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(201,168,76,.2);
+}
+.roles-special-title {
+  margin-top: 36px;
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+@media (max-width: 768px) {
+  .roles-grid { grid-template-columns: 1fr; }
+}
+
+.roles-special-grid {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 760px;
+}
+@media (max-width: 600px) {
+  .roles-special-grid { grid-template-columns: 1fr; }
+}
+
+.role-card {
+  background: #0d1117;
+  border: 1px solid rgba(255,255,255,.07);
+  border-left: 3px solid var(--rc, #C9A84C);
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  box-shadow: 0 4px 18px rgba(0,0,0,.45);
+}
+.role-card:hover {
+  transform: translateY(-2px);
+  border-left-color: var(--rc, #C9A84C);
+  box-shadow: 0 0 22px rgba(0,0,0,.5), 0 0 12px color-mix(in srgb, var(--rc, #C9A84C) 20%, transparent);
+}
+
+.role-emoji {
+  font-size: 26px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  line-height: 1;
+}
+.role-info { display: flex; flex-direction: column; gap: 3px; }
+.role-name {
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--rc, #C9A84C);
+  line-height: 1.2;
+}
+.role-sub {
+  font-size: 12px;
+  color: var(--rc, #C9A84C);
+  opacity: .65;
+  font-style: italic;
+  font-family: 'Crimson Pro', serif;
+}
+.role-desc {
+  font-size: 14px;
+  color: #c9d1d9;
+  line-height: 1.6;
+  margin-top: 4px;
+}
+
+/* Couleurs par rôle */
+.rc-gold    { --rc: #C9A84C; }
+.rc-cyan    { --rc: #00bfff; }
+.rc-red     { --rc: #e05c5c; }
+.rc-orange  { --rc: #f0883e; }
+.rc-blue    { --rc: #388bfd; }
+.rc-green   { --rc: #3fb950; }
+.rc-purple  { --rc: #8b5cf6; }
+.rc-teal    { --rc: #00c8a0; }
+.rc-pink    { --rc: #ff79b0; }
+.rc-muted   { --rc: #7e8a97; }
+.rc-nsfw    { --rc: #e05c5c; }
+.rc-event   { --rc: #00bfff; }
